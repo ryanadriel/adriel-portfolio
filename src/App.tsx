@@ -92,13 +92,6 @@ export default function App() {
     }
   };
 
-  const handleDownloadAction = () => {
-    alert(language === "pt" 
-      ? "Currículo pronto! Sinta-se à vontade para imprimir este portfólio digital como PDF corporativo." 
-      : "Resume ready! Feel free to print this digital portfolio as a corporate PDF."
-    );
-  };
-
   return (
     <div className="bg-bg-dark text-text-primary min-h-screen flex flex-col font-sans relative overflow-x-hidden selection:bg-primary-blue/30 selection:text-white">
       
@@ -385,13 +378,14 @@ export default function App() {
       {/* Floating Resume Download Button */}
       <AnimatePresence>
         {showFloatingButton && (
-          <motion.button
+          <motion.a
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={handleDownloadAction}
+            href={language === "pt" ? "/documents/Adriel_Barbosa_Pt_Br.pdf" : "/documents/Adriel_Barbosa_EN.pdf"}
+            download={language === "pt" ? "Curriculo-Adriel.pdf" : "Adriel-Resume.pdf"}
             className="fixed bottom-6 right-6 z-40 bg-primary-blue hover:bg-primary-blue/90 text-white rounded-full p-4 shadow-[0_4px_20px_rgba(16,114,251,0.4)] flex items-center justify-center group cursor-pointer border border-white/10"
             id="floating-resume-btn"
             title={t("download_resume")}
@@ -400,7 +394,7 @@ export default function App() {
               {t("download_resume").toUpperCase()}
             </span>
             <FileText className="w-5 h-5" />
-          </motion.button>
+          </motion.a>
         )}
       </AnimatePresence>
     </div>
