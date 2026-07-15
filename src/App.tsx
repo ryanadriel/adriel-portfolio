@@ -93,7 +93,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-bg-dark text-text-primary min-h-screen flex flex-col font-sans relative overflow-x-hidden selection:bg-primary-blue/30 selection:text-white">
+    <div className="bg-[#080808] text-white min-h-screen flex flex-col font-sans relative overflow-x-hidden selection:bg-primary-blue/30 selection:text-white">
       
       {/* Editorial Grid Lines Backdrop */}
       <div className="absolute inset-0 editorial-grid-lines pointer-events-none z-0" />

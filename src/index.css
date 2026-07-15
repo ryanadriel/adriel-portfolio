@@ -14,37 +14,35 @@
   --color-text-muted: #808080;
 }
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-    background-color: #080808;
-    color: #FFFFFF;
-    font-family: var(--font-sans);
-  }
+html, body {
+  scroll-behavior: smooth;
+  background-color: #080808;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+}
 
-  /* Custom scrollbar matching Vercel/Linear dark aesthetics */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #080808;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #1D1D1D;
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #1072FB;
-  }
+/* Custom scrollbar matching Vercel/Linear dark aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #1D1D1D;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1072FB;
 }
 
 /* Premium utility classes */
 .glass-panel {
-  background: rgba(17, 17, 17, 0.7);
+  background: rgba(17, 17, 17, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(29, 29, 29, 0.8);
+  border: 1px solid rgba(29, 29, 29, 0.9);
 }
 
 .glow-hover {
