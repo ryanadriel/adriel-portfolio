@@ -57,7 +57,7 @@ export function Header({ activeSection }: HeaderProps) {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "glass-panel py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)] border-b border-[#1D1D1D]/60"
-            : "bg-[#080808]/40 py-5 border-b border-transparent"
+            : "bg-[#080808]/40 backdrop-blur-md py-5 border-b border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
