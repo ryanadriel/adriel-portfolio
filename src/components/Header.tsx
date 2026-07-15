@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Home, User, Briefcase, Code2, Cpu, Compass, Mail, Globe } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 
 interface HeaderProps {
@@ -25,13 +25,13 @@ export function Header({ activeSection }: HeaderProps) {
   }, []);
 
   const navItems = [
-    { id: "hero", label: t("nav_hero") },
-    { id: "about", label: t("nav_about") },
-    { id: "experience", label: t("nav_experience") },
-    { id: "projects", label: t("nav_projects") },
-    { id: "skills", label: t("nav_skills") },
-    { id: "principles", label: t("nav_principles") },
-    { id: "contact", label: t("nav_contact") },
+    { id: "hero", label: t("nav_hero"), icon: Home },
+    { id: "about", label: t("nav_about"), icon: User },
+    { id: "experience", label: t("nav_experience"), icon: Briefcase },
+    { id: "projects", label: t("nav_projects"), icon: Code2 },
+    { id: "skills", label: t("nav_skills"), icon: Cpu },
+    { id: "principles", label: t("nav_principles"), icon: Compass },
+    { id: "contact", label: t("nav_contact"), icon: Mail },
   ];
 
   const handleScrollTo = (id: string) => {
@@ -54,10 +54,12 @@ export function Header({ activeSection }: HeaderProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-[background-color,padding,box-shadow,border-color] duration-300 ${
-          isScrolled
-            ? "bg-[#111]/55 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)] border-b border-[#1D1D1D]/60"
-            : "bg-[#080808]/40 py-5 border-b border-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
+          isMobileMenuOpen
+            ? "bg-[#0c0c0c] border-b border-border-dark py-4"
+            : isScrolled
+              ? "bg-[#0c0c0c]/90 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] border-b border-border-dark/60 lg:py-3"
+              : "bg-[#080808]/40 py-4 border-b border-transparent lg:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -150,27 +152,30 @@ export function Header({ activeSection }: HeaderProps) {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[57px] z-40 lg:hidden glass-panel border-b border-border-dark p-6 shadow-2xl flex flex-col gap-6"
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed inset-x-0 top-16 z-40 lg:hidden bg-[#0c0c0c] border-b border-border-dark p-5 shadow-[0_15px_30px_rgba(0,0,0,0.9)] flex flex-col gap-5 max-h-[calc(100vh-64px)] overflow-y-auto"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1.5">
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
                   <button
                     key={item.id}
                     onClick={() => handleScrollTo(item.id)}
-                    className={`flex items-center justify-between px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 text-left ${
+                    className={`group flex items-center justify-between px-4 py-3.5 text-sm font-medium rounded-xl transition-all duration-200 text-left border ${
                       isActive
-                        ? "bg-primary-blue/10 text-primary-blue border-l-2 border-primary-blue pl-3"
-                        : "text-text-secondary hover:bg-white/5 hover:text-text-primary"
+                        ? "bg-primary-blue/10 border-primary-blue/25 text-white"
+                        : "text-text-secondary bg-white/[0.01] border-transparent hover:bg-white/5 hover:text-text-primary hover:border-white/5"
                     }`}
                   >
-                    <span>{item.label}</span>
-                    <ArrowUpRight className={`w-4 h-4 opacity-40 ${isActive ? "text-primary-blue opacity-100" : ""}`} />
+                    <div className="flex items-center gap-3">
+                      <item.icon className={`w-4 h-4 transition-colors duration-200 ${isActive ? "text-primary-blue" : "text-text-muted group-hover:text-text-primary"}`} />
+                      <span>{item.label}</span>
+                    </div>
+                    <ArrowUpRight className={`w-4 h-4 opacity-40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${isActive ? "text-primary-blue opacity-100" : ""}`} />
                   </button>
                 );
               })}
@@ -178,27 +183,34 @@ export function Header({ activeSection }: HeaderProps) {
             
             {/* Mobile Language Switcher */}
             <div className="flex items-center justify-between border-t border-border-dark/60 pt-4 mt-2">
-              <span className="text-[10px] font-mono font-bold text-text-secondary uppercase tracking-wider">Idioma / Language</span>
-              <div className="flex items-center gap-2 border border-border-dark bg-surface-dark/40 p-1 rounded-full text-xs font-mono select-none">
+              <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4 text-text-muted" />
+                <span className="text-[10px] font-mono font-bold text-text-secondary uppercase tracking-wider">
+                  {language === "pt" ? "Idioma" : "Language"}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 border border-border-dark bg-surface-dark/80 p-1 rounded-full text-xs font-mono select-none">
                 <button
                   onClick={() => setLanguage("pt")}
-                  className={`p-1 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none cursor-pointer border ${
+                  className={`px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all duration-300 focus:outline-none cursor-pointer text-[10px] font-semibold tracking-wider ${
                     language === "pt"
-                      ? "bg-primary-blue/20 border-primary-blue/30 scale-105"
-                      : "border-transparent opacity-50 hover:opacity-100 hover:bg-white/5"
+                      ? "bg-primary-blue text-white shadow-[0_2px_10px_rgba(16,114,251,0.3)]"
+                      : "text-text-muted hover:text-text-primary"
                   }`}
                 >
-                  <img src="https://flagsapi.com/BR/shiny/64.png" alt="BR" className="w-5 h-5 object-contain" referrerPolicy="no-referrer" />
+                  <img src="https://flagsapi.com/BR/shiny/64.png" alt="PT" className="w-3.5 h-3.5 object-contain rounded-full" referrerPolicy="no-referrer" />
+                  PT
                 </button>
                 <button
                   onClick={() => setLanguage("en")}
-                  className={`p-1 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none cursor-pointer border ${
+                  className={`px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all duration-300 focus:outline-none cursor-pointer text-[10px] font-semibold tracking-wider ${
                     language === "en"
-                      ? "bg-primary-blue/20 border-primary-blue/30 scale-105"
-                      : "border-transparent opacity-50 hover:opacity-100 hover:bg-white/5"
+                      ? "bg-primary-blue text-white shadow-[0_2px_10px_rgba(16,114,251,0.3)]"
+                      : "text-text-muted hover:text-text-primary"
                   }`}
                 >
-                  <img src="https://flagsapi.com/US/shiny/64.png" alt="US" className="w-5 h-5 object-contain" referrerPolicy="no-referrer" />
+                  <img src="https://flagsapi.com/US/shiny/64.png" alt="EN" className="w-3.5 h-3.5 object-contain rounded-full" referrerPolicy="no-referrer" />
+                  EN
                 </button>
               </div>
             </div>
