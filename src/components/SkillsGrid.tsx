@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { Code, Database, Globe, Layers, CheckSquare, Settings } from "lucide-react";
@@ -7,6 +7,15 @@ export function SkillsGrid() {
   const { skillCategories, t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>("Backend");
   const [showAllSkills, setShowAllSkills] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    setIsMobile(media.matches);
+    const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, []);
 
   const categories = language === "pt" 
     ? ["Tudo", "Backend", "Databases", "DevOps & Cloud", "Architecture & Practices"] 
@@ -39,12 +48,12 @@ export function SkillsGrid() {
     cat.skills.map(skill => ({ ...skill, category: cat.title }))
   );
 
-  const visibleSkills = showAllSkills ? allSkills : allSkills.slice(0, 9);
+  const visibleSkills = isMobile && !showAllSkills ? allSkills.slice(0, 3) : (showAllSkills ? allSkills : allSkills.slice(0, 9));
 
   return (
     <div className="flex flex-col gap-8 w-full">
       {/* Interactive Category Selector Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 border-b border-border-dark/60 pb-6">
+      <div className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:justify-center gap-2 border-b border-border-dark/60 pb-4 md:pb-6 px-4 md:px-0 -mx-6 md:mx-0">
         {categories.map((cat) => {
           const isActive = selectedCategory === cat;
           return (
@@ -54,7 +63,7 @@ export function SkillsGrid() {
                 setSelectedCategory(cat);
                 setShowAllSkills(false); // Reset expansion on tab change
               }}
-              className={`px-4 py-2 rounded-lg text-xs font-mono font-semibold tracking-wider transition-all duration-300 relative cursor-pointer focus:outline-none ${
+              className={`px-4 py-2 rounded-lg text-xs font-mono font-semibold tracking-wider transition-all duration-300 relative cursor-pointer focus:outline-none whitespace-nowrap ${
                 isActive
                   ? "text-text-primary bg-white/5 border border-white/15 shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
                   : "text-text-muted hover:text-text-primary bg-transparent border border-transparent"
@@ -177,7 +186,7 @@ export function SkillsGrid() {
 
                 {/* Skills Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {cat.skills.map((skill, index) => (
+                  {(isMobile && !showAllSkills ? cat.skills.slice(0, 3) : cat.skills).map((skill, index) => (
                     <motion.div
                       key={skill.name}
                       initial={{ opacity: 0, scale: 0.95 }}
@@ -220,6 +229,27 @@ export function SkillsGrid() {
                     </motion.div>
                   ))}
                 </div>
+
+                {/* Ver mais button for category grid (only on mobile when category has more than 3 skills) */}
+                {isMobile && cat.skills.length > 3 && (
+                  <div className="flex justify-center mt-4">
+                    {!showAllSkills ? (
+                      <button
+                        onClick={() => setShowAllSkills(true)}
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary-blue/40 bg-[#0c0c0c] hover:bg-primary-blue/10 hover:border-primary-blue hover:text-text-primary text-text-secondary text-xs font-mono font-semibold tracking-widest transition-all duration-300 shadow-[0_0_15px_rgba(16,114,251,0.15)] cursor-pointer"
+                      >
+                        {t("btn_more_skills")}
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => setShowAllSkills(false)}
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 bg-[#0c0c0c] hover:bg-white/5 hover:text-text-primary text-text-secondary text-xs font-mono font-semibold tracking-widest transition-all duration-300 cursor-pointer"
+                      >
+                        {t("btn_less_skills")}
+                      </button>
+                    )}
+                  </div>
+                )}
               </motion.div>
             ))
           )}

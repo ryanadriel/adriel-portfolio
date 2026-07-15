@@ -124,7 +124,7 @@ export function ContactForm() {
         </div>
 
         {/* Social Connection Channels Grid */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="hidden lg:grid grid-cols-3 gap-3">
           <a
             href="https://www.linkedin.com/in/adriel-ryan/"
             target="_blank"
@@ -160,7 +160,7 @@ export function ContactForm() {
 
       {/* Right Column: Interaction Form Panel (7 Cols) */}
       <div className="lg:col-span-7">
-        <div className="glass-panel rounded-2xl p-6 lg:p-8 border border-border-dark bg-surface-dark/10 relative overflow-hidden">
+        <div className="glass-panel rounded-2xl p-4 xs:p-6 lg:p-8 border border-border-dark bg-surface-dark/10 relative overflow-hidden">
           <AnimatePresence mode="wait">
             {!formSubmitted ? (
               <motion.form
@@ -315,6 +315,40 @@ export function ContactForm() {
             )}
           </AnimatePresence>
         </div>
+      </div>
+
+      {/* Social Connection Channels Grid (Mobile Only) */}
+      <div className="grid lg:hidden grid-cols-3 gap-3 w-full">
+        <a
+          href="https://www.linkedin.com/in/adriel-ryan/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-3.5 border border-border-dark bg-surface-dark/20 hover:border-primary-blue/30 rounded-xl flex flex-col items-center justify-center gap-1.5 transition-all duration-300 group cursor-pointer text-center"
+          id="contact-linkedin-mobile"
+        >
+          <Linkedin className="w-4 h-4 mx-auto text-text-muted group-hover:text-primary-blue transition-colors duration-200" />
+          <span className="text-[9px] font-mono font-bold text-text-secondary group-hover:text-text-primary transition-colors duration-200 mt-1">LINKEDIN</span>
+        </a>
+
+        <a
+          href="https://github.com/ryanadriel"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-3.5 border border-border-dark bg-surface-dark/20 hover:border-primary-blue/30 rounded-xl flex flex-col items-center justify-center gap-1.5 transition-all duration-300 group cursor-pointer text-center"
+          id="contact-github-mobile"
+        >
+          <Github className="w-4 h-4 mx-auto text-text-muted group-hover:text-primary-blue transition-colors duration-200" />
+          <span className="text-[9px] font-mono font-bold text-text-secondary group-hover:text-text-primary transition-colors duration-200 mt-1">GITHUB</span>
+        </a>
+
+        <button
+          onClick={() => alert(language === "pt" ? "Currículo pronto! Sinta-se à vontade para imprimir este portfólio digital como PDF corporativo ou fazer download usando o botão flutuante no canto inferior direito." : "Resume ready! Feel free to print this digital portfolio as a corporate PDF or download it using the floating button in the bottom right corner.")}
+          className="p-3.5 border border-border-dark bg-surface-dark/20 hover:border-primary-blue/30 rounded-xl flex flex-col items-center justify-center gap-1.5 transition-all duration-300 group cursor-pointer text-center"
+          id="contact-resume-mobile"
+        >
+          <FileText className="w-4 h-4 mx-auto text-text-muted group-hover:text-primary-blue transition-colors duration-200" />
+          <span className="text-[9px] font-mono font-bold text-text-secondary group-hover:text-text-primary transition-colors duration-200 mt-1">RESUME</span>
+        </button>
       </div>
     </div>
   );

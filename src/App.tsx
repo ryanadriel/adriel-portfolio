@@ -131,18 +131,18 @@ export default function App() {
             {/* Embedded Active SSH Console Tag */}
             <div className="flex items-center gap-2 bg-[#111111] border border-border-dark px-4 py-1.5 rounded-full text-[11px] font-mono font-semibold text-text-secondary select-none animate-float shadow-sm">
               <span className="w-1.5 h-1.5 rounded-sm bg-primary-blue animate-pulse" />
-              <span>adriel@production_cluster:~$ ssh saas_gateway</span>
+              <span className="hidden md:inline">adriel@production_cluster:~$ ssh saas_gateway</span>
             </div>
 
             {/* Title & Headline (Editorial Aesthetic font-serif) */}
             <div className="flex flex-col gap-3">
               <span className="editorial-badge w-fit">{t("software_engineer")}</span>
-              <h1 className="text-5xl md:text-6xl lg:text-[64px] font-serif font-bold tracking-tight text-white leading-[1.1]">
+              <h1 className="text-4xl xs:text-5xl md:text-6xl lg:text-[64px] font-serif font-bold tracking-tight text-white leading-[1.1]">
                 Adriel Barbosa
               </h1>
               
               {/* Elegant Dot Divider Subtitle */}
-              <div className="flex flex-wrap items-center text-xs font-mono font-semibold text-text-secondary mt-1 tracking-wide uppercase">
+              <div className="flex flex-wrap items-center gap-y-1.5 text-[10px] xs:text-xs font-mono font-semibold text-text-secondary mt-1 tracking-wide uppercase">
                 <span>Laravel</span>
                 <span className="w-1 h-1 rounded-full bg-text-muted mx-2.5" />
                 <span>PHP</span>
@@ -200,7 +200,7 @@ export default function App() {
       {/* 2. ABOUT ME SECTION (Bento UI layout) */}
       <section 
         id="about" 
-        className="py-24 border-b border-border-dark/40 relative"
+        className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-3 mb-14 text-center md:text-left">
@@ -226,24 +226,24 @@ export default function App() {
               </p>
 
               {/* Highlight metrics card block */}
-              <div className="grid grid-cols-3 gap-4 border border-border-dark/60 bg-surface-dark/20 p-4 rounded-xl mt-4 select-none">
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="text-[10px] font-mono text-text-muted uppercase tracking-wider">{t("metric_exp")}</span>
-                  <span className="text-xl font-bold text-text-primary font-mono">{t("metric_exp_val")}</span>
+              <div className="grid grid-cols-3 gap-2 xs:gap-4 border border-border-dark/60 bg-surface-dark/20 p-2.5 xs:p-4 rounded-xl mt-4 select-none">
+                <div className="flex flex-col gap-1 leading-none">
+                  <span className="text-[8px] xs:text-[10px] font-mono text-text-muted uppercase tracking-wider">{t("metric_exp")}</span>
+                  <span className="text-sm xs:text-base sm:text-xl font-bold text-text-primary font-mono">{t("metric_exp_val")}</span>
                 </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="text-[10px] font-mono text-text-muted uppercase tracking-wider">{t("metric_apis")}</span>
-                  <span className="text-xl font-bold text-primary-blue font-mono">{t("metric_apis_val")}</span>
+                <div className="flex flex-col gap-1 leading-none">
+                  <span className="text-[8px] xs:text-[10px] font-mono text-text-muted uppercase tracking-wider">{t("metric_apis")}</span>
+                  <span className="text-sm xs:text-base sm:text-xl font-bold text-primary-blue font-mono">{t("metric_apis_val")}</span>
                 </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="text-[10px] font-mono text-text-muted uppercase tracking-wider">{t("metric_latency")}</span>
-                  <span className="text-xl font-bold text-emerald-400 font-mono">{t("metric_latency_val")}</span>
+                <div className="flex flex-col gap-1 leading-none">
+                  <span className="text-[8px] xs:text-[10px] font-mono text-text-muted uppercase tracking-wider">{t("metric_latency")}</span>
+                  <span className="text-sm xs:text-base sm:text-xl font-bold text-emerald-400 font-mono">{t("metric_latency_val")}</span>
                 </div>
               </div>
             </div>
 
             {/* Immersive Backend PHP Code mock representing high engineering quality (5 Columns) */}
-            <div className="lg:col-span-5 w-full">
+            <div className="lg:col-span-5 w-full hidden lg:block">
               <div className="glass-panel rounded-xl border border-border-dark bg-black/80 p-4 font-mono text-[10px] text-[#A9B1D6] leading-relaxed shadow-2xl relative select-text overflow-x-auto">
                 <div className="flex items-center justify-between border-b border-border-dark/60 pb-2 mb-2">
                   <div className="flex items-center gap-1.5">
@@ -287,7 +287,7 @@ export default function App() {
       {/* 3. EXPERIENCE SECTION */}
       <section 
         id="experience" 
-        className="py-24 border-b border-border-dark/40"
+        className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-3 mb-16 text-center md:text-left">
@@ -306,7 +306,7 @@ export default function App() {
       {/* 4. FEATURED PROJECTS SECTION */}
       <section 
         id="projects" 
-        className="py-24 border-b border-border-dark/40 relative"
+        className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-3 mb-16 text-center md:text-left">
@@ -325,7 +325,7 @@ export default function App() {
       {/* 5. SKILLS GRID SECTION */}
       <section 
         id="skills" 
-        className="py-24 border-b border-border-dark/40"
+        className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-3 mb-14 text-center md:text-left">
@@ -344,7 +344,7 @@ export default function App() {
       {/* 6. ENGINEERING PRINCIPLES SECTION */}
       <section 
         id="principles" 
-        className="py-24 border-b border-border-dark/40 relative"
+        className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-3 mb-16 text-center md:text-left">
@@ -363,7 +363,7 @@ export default function App() {
       {/* 7. CONTACT SECTION */}
       <section 
         id="contact" 
-        className="py-24"
+        className="py-14 sm:py-16 md:py-20 lg:py-24"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-3 mb-16 text-center md:text-left">

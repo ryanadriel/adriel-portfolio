@@ -300,203 +300,206 @@ export function InteractiveArchitecture() {
   return (
     <div className="flex flex-col gap-5 w-full">
       {/* Visual Canvas Panel */}
-      <div className="relative glass-panel rounded-2xl p-4 lg:p-6 border border-border-dark bg-surface-dark/40 shadow-2xl overflow-hidden min-h-[380px] flex items-center justify-center">
+      <div className="relative glass-panel rounded-2xl border border-border-dark bg-surface-dark/40 shadow-2xl overflow-hidden h-[190px] xs:h-[220px] sm:h-[280px] md:h-[380px] flex items-center justify-center">
         {/* Ambient Grid Pattern in SVG Background */}
         <div className="absolute inset-0 tech-grid-pattern opacity-30 radial-gradient-mask" />
 
-        {/* Laser / Signal Lines in absolute SVG */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 600 300" preserveAspectRatio="none">
-          {/* Signal paths definitions */}
-          <g opacity="0.3">
-            {/* Main trunk flow paths */}
-            <path id="path-client-cf" d="M 60,150 L 140,150" stroke="#1D1D1D" strokeWidth="2" fill="none" />
-            <path id="path-cf-gw" d="M 190,150 L 260,150" stroke="#1D1D1D" strokeWidth="2" fill="none" />
-            <path id="path-gw-laravel" d="M 310,150 Q 340,150 370,105" stroke="#1D1D1D" strokeWidth="2" fill="none" />
-            <path id="path-gw-spring" d="M 310,150 Q 340,150 370,195" stroke="#1D1D1D" strokeWidth="2" fill="none" />
-            
-            <path id="path-laravel-redis" d="M 430,95 L 500,60" stroke="#1D1D1D" strokeWidth="1.5" fill="none" />
-            <path id="path-laravel-pg" d="M 430,105 Q 460,115 500,150" stroke="#1D1D1D" strokeWidth="1.5" fill="none" />
-            
-            <path id="path-spring-pg" d="M 430,195 Q 460,185 500,150" stroke="#1D1D1D" strokeWidth="1.5" fill="none" />
-            <path id="path-spring-rmq" d="M 430,205 L 500,240" stroke="#1D1D1D" strokeWidth="1.5" fill="none" />
-          </g>
+        {/* Scaling Wrapper for absolute precision matching SVG lines to Nodes */}
+        <div className="absolute w-[600px] h-[300px] flex items-center justify-center scale-[0.45] min-[360px]:scale-[0.52] min-[400px]:scale-[0.6] min-[480px]:scale-[0.72] sm:scale-[0.85] md:scale-100 origin-center shrink-0">
+          {/* Laser / Signal Lines in absolute SVG */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 600 300" preserveAspectRatio="none">
+            {/* Signal paths definitions */}
+            <g opacity="0.3">
+              {/* Main trunk flow paths */}
+              <path id="path-client-cf" d="M 60,150 L 140,150" stroke="#1D1D1D" strokeWidth="2" fill="none" />
+              <path id="path-cf-gw" d="M 190,150 L 260,150" stroke="#1D1D1D" strokeWidth="2" fill="none" />
+              <path id="path-gw-laravel" d="M 310,150 Q 340,150 370,105" stroke="#1D1D1D" strokeWidth="2" fill="none" />
+              <path id="path-gw-spring" d="M 310,150 Q 340,150 370,195" stroke="#1D1D1D" strokeWidth="2" fill="none" />
+              
+              <path id="path-laravel-redis" d="M 430,95 L 500,60" stroke="#1D1D1D" strokeWidth="1.5" fill="none" />
+              <path id="path-laravel-pg" d="M 430,105 Q 460,115 500,150" stroke="#1D1D1D" strokeWidth="1.5" fill="none" />
+              
+              <path id="path-spring-pg" d="M 430,195 Q 460,185 500,150" stroke="#1D1D1D" strokeWidth="1.5" fill="none" />
+              <path id="path-spring-rmq" d="M 430,205 L 500,240" stroke="#1D1D1D" strokeWidth="1.5" fill="none" />
+            </g>
 
-          {/* Animated Flow Lasers / Pulses */}
-          <AnimatePresence>
-            {activePaths.length > 0 && (
-              <g>
-                {/* Client to Cloudflare */}
-                <circle r="3" fill="#1072FB">
-                  <animateMotion dur="1.8s" repeatCount="indefinite" path="M 60,150 L 140,150" />
-                  <animate attributeName="opacity" values="0;1;1;0" dur="1.8s" repeatCount="indefinite" />
-                </circle>
+            {/* Animated Flow Lasers / Pulses */}
+            <AnimatePresence>
+              {activePaths.length > 0 && (
+                <g>
+                  {/* Client to Cloudflare */}
+                  <circle r="3" fill="#1072FB">
+                    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 60,150 L 140,150" />
+                    <animate attributeName="opacity" values="0;1;1;0" dur="1.8s" repeatCount="indefinite" />
+                  </circle>
 
-                {/* Cloudflare to Gateway */}
-                <circle r="3" fill="#1072FB">
-                  <animateMotion dur="2.2s" begin="0.3s" repeatCount="indefinite" path="M 190,150 L 260,150" />
-                  <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite" />
-                </circle>
+                  {/* Cloudflare to Gateway */}
+                  <circle r="3" fill="#1072FB">
+                    <animateMotion dur="2.2s" begin="0.3s" repeatCount="indefinite" path="M 190,150 L 260,150" />
+                    <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite" />
+                  </circle>
 
-                {/* Gateway to Laravel */}
-                <circle r="2.5" fill="#1072FB">
-                  <animateMotion dur="2.5s" begin="0.6s" repeatCount="indefinite" path="M 310,150 Q 340,150 370,105" />
-                  <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" repeatCount="indefinite" />
-                </circle>
+                  {/* Gateway to Laravel */}
+                  <circle r="2.5" fill="#1072FB">
+                    <animateMotion dur="2.5s" begin="0.6s" repeatCount="indefinite" path="M 310,150 Q 340,150 370,105" />
+                    <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" repeatCount="indefinite" />
+                  </circle>
 
-                {/* Gateway to Spring Boot */}
-                <circle r="2.5" fill="#1072FB">
-                  <animateMotion dur="2.5s" begin="0.8s" repeatCount="indefinite" path="M 310,150 Q 340,150 370,195" />
-                  <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" repeatCount="indefinite" />
-                </circle>
+                  {/* Gateway to Spring Boot */}
+                  <circle r="2.5" fill="#1072FB">
+                    <animateMotion dur="2.5s" begin="0.8s" repeatCount="indefinite" path="M 310,150 Q 340,150 370,195" />
+                    <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" repeatCount="indefinite" />
+                  </circle>
 
-                {/* Laravel to Redis */}
-                <circle r="2" fill="#1072FB">
-                  <animateMotion dur="1.5s" begin="1.2s" repeatCount="indefinite" path="M 430,95 L 500,60" />
-                  <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite" />
-                </circle>
+                  {/* Laravel to Redis */}
+                  <circle r="2" fill="#1072FB">
+                    <animateMotion dur="1.5s" begin="1.2s" repeatCount="indefinite" path="M 430,95 L 500,60" />
+                    <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
 
-                {/* Spring Boot to PostgreSQL */}
-                <circle r="2" fill="#FFFFFF">
-                  <animateMotion dur="1.5s" begin="1.4s" repeatCount="indefinite" path="M 430,195 Q 460,185 500,150" />
-                  <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite" />
-                </circle>
-              </g>
-            )}
-          </AnimatePresence>
-        </svg>
+                  {/* Spring Boot to PostgreSQL */}
+                  <circle r="2" fill="#FFFFFF">
+                    <animateMotion dur="1.5s" begin="1.4s" repeatCount="indefinite" path="M 430,195 Q 460,185 500,150" />
+                    <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+              )}
+            </AnimatePresence>
+          </svg>
 
-        {/* Graphical Node Overlay (positioned relatively via CSS grids for flawless layout) */}
-        <div className="relative w-full h-[280px] grid grid-cols-5 items-center justify-items-center gap-1">
-          {/* Col 1: Ingress */}
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={() => triggerManualRequest("node-client")}
-              className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-16 h-16 ${
-                selectedNode.id === "node-client"
-                  ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
-                  : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
-              }`}
-              title="Clientes"
-              id="arch-btn-client"
-            >
-              {getNodeIcon("node-client", selectedNode.id === "node-client" ? "text-primary-blue" : "text-text-secondary")}
-              <span className="text-[8px] font-mono tracking-tighter text-center">CLIENT</span>
-            </button>
-          </div>
+          {/* Graphical Node Overlay */}
+          <div className="relative w-full h-[280px] grid grid-cols-5 items-center justify-items-center gap-1">
+            {/* Col 1: Ingress */}
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => triggerManualRequest("node-client")}
+                className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-16 h-16 ${
+                  selectedNode.id === "node-client"
+                    ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
+                    : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
+                }`}
+                title="Clientes"
+                id="arch-btn-client"
+              >
+                {getNodeIcon("node-client", selectedNode.id === "node-client" ? "text-primary-blue" : "text-text-secondary")}
+                <span className="text-[8px] font-mono tracking-tighter text-center">CLIENT</span>
+              </button>
+            </div>
 
-          {/* Col 2: Security Edge */}
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={() => triggerManualRequest("node-cloudflare")}
-              className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-16 h-16 ${
-                selectedNode.id === "node-cloudflare"
-                  ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
-                  : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
-              }`}
-              title="Cloudflare Edge"
-              id="arch-btn-cloudflare"
-            >
-              {getNodeIcon("node-cloudflare", selectedNode.id === "node-cloudflare" ? "text-primary-blue" : "text-text-secondary")}
-              <span className="text-[8px] font-mono tracking-tighter text-center">EDGE</span>
-            </button>
-          </div>
+            {/* Col 2: Security Edge */}
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => triggerManualRequest("node-cloudflare")}
+                className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-16 h-16 ${
+                  selectedNode.id === "node-cloudflare"
+                    ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
+                    : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
+                }`}
+                title="Cloudflare Edge"
+                id="arch-btn-cloudflare"
+              >
+                {getNodeIcon("node-cloudflare", selectedNode.id === "node-cloudflare" ? "text-primary-blue" : "text-text-secondary")}
+                <span className="text-[8px] font-mono tracking-tighter text-center">EDGE</span>
+              </button>
+            </div>
 
-          {/* Col 3: Gateway */}
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={() => triggerManualRequest("node-gateway")}
-              className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-16 h-16 ${
-                selectedNode.id === "node-gateway"
-                  ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
-                  : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
-              }`}
-              title="API Gateway Router"
-              id="arch-btn-gateway"
-            >
-              {getNodeIcon("node-gateway", selectedNode.id === "node-gateway" ? "text-primary-blue" : "text-text-secondary")}
-              <span className="text-[8px] font-mono tracking-tighter text-center">GATEWAY</span>
-            </button>
-          </div>
+            {/* Col 3: Gateway */}
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => triggerManualRequest("node-gateway")}
+                className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-16 h-16 ${
+                  selectedNode.id === "node-gateway"
+                    ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
+                    : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
+                }`}
+                title="API Gateway Router"
+                id="arch-btn-gateway"
+              >
+                {getNodeIcon("node-gateway", selectedNode.id === "node-gateway" ? "text-primary-blue" : "text-text-secondary")}
+                <span className="text-[8px] font-mono tracking-tighter text-center">GATEWAY</span>
+              </button>
+            </div>
 
-          {/* Col 4: Clusters */}
-          <div className="flex flex-col gap-10">
-            {/* Laravel App */}
-            <button
-              onClick={() => triggerManualRequest("node-laravel")}
-              className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-20 h-20 relative ${
-                selectedNode.id === "node-laravel"
-                  ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
-                  : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
-              }`}
-              id="arch-btn-laravel"
-            >
-              {getNodeIcon("node-laravel", selectedNode.id === "node-laravel" ? "text-primary-blue" : "text-text-secondary")}
-              <span className="text-[9px] font-mono tracking-tight font-semibold text-center leading-tight">LARAVEL</span>
-              <span className="absolute -bottom-2 px-1 text-[7px] font-mono rounded bg-[#FF2D20]/15 text-[#FF2D20] border border-[#FF2D20]/20">OCTANE</span>
-            </button>
+            {/* Col 4: Clusters */}
+            <div className="flex flex-col gap-10">
+              {/* Laravel App */}
+              <button
+                onClick={() => triggerManualRequest("node-laravel")}
+                className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-20 h-20 relative ${
+                  selectedNode.id === "node-laravel"
+                    ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
+                    : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
+                }`}
+                id="arch-btn-laravel"
+              >
+                {getNodeIcon("node-laravel", selectedNode.id === "node-laravel" ? "text-primary-blue" : "text-text-secondary")}
+                <span className="text-[9px] font-mono tracking-tight font-semibold text-center leading-tight">LARAVEL</span>
+                <span className="absolute -bottom-2 px-1 text-[7px] font-mono rounded bg-[#FF2D20]/15 text-[#FF2D20] border border-[#FF2D20]/20">OCTANE</span>
+              </button>
 
-            {/* Spring Boot App */}
-            <button
-              onClick={() => triggerManualRequest("node-springboot")}
-              className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-20 h-20 relative ${
-                selectedNode.id === "node-springboot"
-                  ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
-                  : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
-              }`}
-              id="arch-btn-spring"
-            >
-              {getNodeIcon("node-springboot", selectedNode.id === "node-springboot" ? "text-primary-blue" : "text-text-secondary")}
-              <span className="text-[9px] font-mono tracking-tight font-semibold text-center leading-tight">SPRING</span>
-              <span className="absolute -bottom-2 px-1 text-[7px] font-mono rounded bg-[#6DB33F]/15 text-[#6DB33F] border border-[#6DB33F]/20">REACTIVE</span>
-            </button>
-          </div>
+              {/* Spring Boot App */}
+              <button
+                onClick={() => triggerManualRequest("node-springboot")}
+                className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all duration-300 w-20 h-20 relative ${
+                  selectedNode.id === "node-springboot"
+                    ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
+                    : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
+                }`}
+                id="arch-btn-spring"
+              >
+                {getNodeIcon("node-springboot", selectedNode.id === "node-springboot" ? "text-primary-blue" : "text-text-secondary")}
+                <span className="text-[9px] font-mono tracking-tight font-semibold text-center leading-tight">SPRING</span>
+                <span className="absolute -bottom-2 px-1 text-[7px] font-mono rounded bg-[#6DB33F]/15 text-[#6DB33F] border border-[#6DB33F]/20">REACTIVE</span>
+              </button>
+            </div>
 
-          {/* Col 5: Data & Broker Services */}
-          <div className="flex flex-col gap-4">
-            {/* Redis Cache */}
-            <button
-              onClick={() => triggerManualRequest("node-redis")}
-              className={`p-2.5 rounded-xl border flex flex-col items-center justify-center gap-0.5 transition-all duration-300 w-16 h-16 ${
-                selectedNode.id === "node-redis"
-                  ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
-                  : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
-              }`}
-              title="Redis Cluster"
-              id="arch-btn-redis"
-            >
-              {getNodeIcon("node-redis", selectedNode.id === "node-redis" ? "text-primary-blue" : "text-text-secondary")}
-              <span className="text-[8px] font-mono tracking-tighter text-center">REDIS</span>
-            </button>
+            {/* Col 5: Data & Broker Services */}
+            <div className="flex flex-col gap-4">
+              {/* Redis Cache */}
+              <button
+                onClick={() => triggerManualRequest("node-redis")}
+                className={`p-2.5 rounded-xl border flex flex-col items-center justify-center gap-0.5 transition-all duration-300 w-16 h-16 ${
+                  selectedNode.id === "node-redis"
+                    ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
+                    : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
+                }`}
+                title="Redis Cluster"
+                id="arch-btn-redis"
+              >
+                {getNodeIcon("node-redis", selectedNode.id === "node-redis" ? "text-primary-blue" : "text-text-secondary")}
+                <span className="text-[8px] font-mono tracking-tighter text-center">REDIS</span>
+              </button>
 
-            {/* PostgreSQL DB */}
-            <button
-              onClick={() => triggerManualRequest("node-postgres")}
-              className={`p-2.5 rounded-xl border flex flex-col items-center justify-center gap-0.5 transition-all duration-300 w-16 h-16 ${
-                selectedNode.id === "node-postgres"
-                  ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
-                  : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
-              }`}
-              title="PostgreSQL 16"
-              id="arch-btn-postgres"
-            >
-              {getNodeIcon("node-postgres", selectedNode.id === "node-postgres" ? "text-primary-blue" : "text-text-secondary")}
-              <span className="text-[8px] font-mono tracking-tighter text-center">POSTGRES</span>
-            </button>
+              {/* PostgreSQL DB */}
+              <button
+                onClick={() => triggerManualRequest("node-postgres")}
+                className={`p-2.5 rounded-xl border flex flex-col items-center justify-center gap-0.5 transition-all duration-300 w-16 h-16 ${
+                  selectedNode.id === "node-postgres"
+                    ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
+                    : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
+                }`}
+                title="PostgreSQL 16"
+                id="arch-btn-postgres"
+              >
+                {getNodeIcon("node-postgres", selectedNode.id === "node-postgres" ? "text-primary-blue" : "text-text-secondary")}
+                <span className="text-[8px] font-mono tracking-tighter text-center">POSTGRES</span>
+              </button>
 
-            {/* RabbitMQ */}
-            <button
-              onClick={() => triggerManualRequest("node-rabbitmq")}
-              className={`p-2.5 rounded-xl border flex flex-col items-center justify-center gap-0.5 transition-all duration-300 w-16 h-16 ${
-                selectedNode.id === "node-rabbitmq"
-                  ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
-                  : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
-              }`}
-              title="RabbitMQ Message Broker"
-              id="arch-btn-rabbitmq"
-            >
-              {getNodeIcon("node-rabbitmq", selectedNode.id === "node-rabbitmq" ? "text-primary-blue" : "text-text-secondary")}
-              <span className="text-[8px] font-mono tracking-tighter text-center">AMQP</span>
-            </button>
+              {/* RabbitMQ */}
+              <button
+                onClick={() => triggerManualRequest("node-rabbitmq")}
+                className={`p-2.5 rounded-xl border flex flex-col items-center justify-center gap-0.5 transition-all duration-300 w-16 h-16 ${
+                  selectedNode.id === "node-rabbitmq"
+                    ? "bg-primary-blue/20 border-primary-blue shadow-[0_0_15px_rgba(16,114,251,0.3)]"
+                    : "bg-surface-dark border-border-dark hover:border-primary-blue/40"
+                }`}
+                title="RabbitMQ Message Broker"
+                id="arch-btn-rabbitmq"
+              >
+                {getNodeIcon("node-rabbitmq", selectedNode.id === "node-rabbitmq" ? "text-primary-blue" : "text-text-secondary")}
+                <span className="text-[8px] font-mono tracking-tighter text-center">AMQP</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -508,9 +511,9 @@ export function InteractiveArchitecture() {
       </div>
 
       {/* Diagnostics Panel & Live Console Terminal */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full">
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-4 w-full">
         {/* Diagnostics Info Screen */}
-        <div className="md:col-span-5 glass-panel rounded-xl p-4 border border-border-dark flex flex-col justify-between bg-surface-dark/60 h-[220px]">
+        <div className="md:col-span-5 glass-panel rounded-xl p-4 border border-border-dark flex flex-col justify-between bg-surface-dark/60 h-[180px] sm:h-[200px] md:h-[220px]">
           <div className="flex flex-col gap-1.5 overflow-hidden">
             <div className="flex items-center justify-between">
               <span className="text-[9px] font-mono tracking-widest text-primary-blue font-bold uppercase">
@@ -549,7 +552,7 @@ export function InteractiveArchitecture() {
         </div>
 
         {/* Real-time Logger Terminal */}
-        <div className="md:col-span-7 glass-panel rounded-xl p-3 border border-border-dark bg-black/95 flex flex-col h-[220px]">
+        <div className="md:col-span-7 glass-panel rounded-xl p-3 border border-border-dark bg-black/95 flex flex-col h-[180px] sm:h-[200px] md:h-[220px]">
           {/* Header */}
           <div className="flex items-center justify-between pb-1.5 border-b border-border-dark/60 text-[9px] font-mono text-text-muted">
             <div className="flex items-center gap-1.5">
@@ -572,13 +575,13 @@ export function InteractiveArchitecture() {
                 log.method === "DELETE" ? "text-[#E06C75]" : "text-[#ABB2BF]";
 
               return (
-                <div key={log.id} className="flex flex-wrap sm:flex-nowrap items-center gap-x-2 gap-y-0.5 hover:bg-white/5 px-2 py-1 rounded transition-colors duration-150 border-b border-border-dark/10 text-[9px] min-w-0">
+                <div key={log.id} className="flex items-center gap-2 hover:bg-white/5 px-2 py-0.5 rounded transition-colors duration-150 border-b border-border-dark/10 text-[9px] min-w-0 w-full overflow-hidden">
                   <span className="text-text-muted text-[8px] font-mono shrink-0">[{log.timestamp}]</span>
-                  <span className={`${methodColor} font-bold text-[8px] font-mono shrink-0 w-10 text-center`}>{log.method}</span>
-                  <span className="text-text-primary truncate max-w-[110px] sm:max-w-[150px] font-medium shrink-0" title={log.endpoint}>{log.endpoint}</span>
-                  <span className="text-text-muted text-[8px] shrink-0">({log.latency})</span>
-                  <span className="text-primary-blue font-bold text-[8px] shrink-0">[{log.origin}]</span>
-                  <span className="text-text-secondary italic text-[8px] truncate flex-1 min-w-[50px]" title={log.detail}>— {log.detail}</span>
+                  <span className={`${methodColor} font-bold text-[8px] font-mono shrink-0 w-8 text-center`}>{log.method}</span>
+                  <span className="text-text-primary truncate max-w-[90px] xs:max-w-[110px] sm:max-w-[150px] font-medium shrink-0" title={log.endpoint}>{log.endpoint}</span>
+                  <span className="text-text-muted text-[8px] shrink-0 font-mono">({log.latency})</span>
+                  <span className="text-primary-blue font-bold text-[8px] shrink-0 truncate max-w-[50px] sm:max-w-none">[{log.origin.split(" ")[0]}]</span>
+                  <span className="text-text-secondary italic text-[8px] truncate flex-1 min-w-0" title={log.detail}>— {log.detail}</span>
                 </div>
               );
             })}

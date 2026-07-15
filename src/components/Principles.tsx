@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { 
@@ -8,6 +8,15 @@ import {
 export function Principles() {
   const { principles, t } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    setIsMobile(media.matches);
+    const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, []);
   
   const getPrincipleIcon = (iconName: string) => {
     const props = { className: "w-5 h-5 text-primary-blue" };
@@ -54,7 +63,7 @@ export function Principles() {
     }
   };
 
-  const visiblePrinciples = isExpanded ? principles : principles.slice(0, 6);
+  const visiblePrinciples = isExpanded ? principles : (isMobile ? principles.slice(0, 2) : principles.slice(0, 6));
 
   return (
     <div className="w-full flex flex-col gap-8">
@@ -75,7 +84,7 @@ export function Principles() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 layout
-                className="glass-panel rounded-2xl p-5 border border-border-dark bg-surface-dark/15 hover:border-border-dark flex flex-col justify-between gap-4 group glow-hover relative transition-all duration-300 shadow-md"
+                className="glass-panel rounded-2xl p-4 xs:p-5 border border-border-dark bg-surface-dark/15 hover:border-border-dark flex flex-col justify-between gap-4 group glow-hover relative transition-all duration-300 shadow-md"
               >
                 {/* Top Line Decorator */}
                 <div className="absolute top-0 inset-x-8 h-[1px] bg-gradient-to-r from-transparent via-primary-blue/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

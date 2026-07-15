@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Experience } from "../types.ts";
 import { useLanguage } from "../context/LanguageContext.tsx";
@@ -8,6 +8,15 @@ export function Timeline() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const { experiences, t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    setIsMobile(media.matches);
+    const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,14 +88,14 @@ export function Timeline() {
               {/* Timeline Content Block (occupies 1/2 width on desktop, full width on mobile) */}
               <div className="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
                 <div 
-                  className={`glass-panel rounded-xl p-6 border transition-all duration-500 bg-surface-dark/40 glow-hover relative overflow-hidden ${
+                  className={`glass-panel rounded-xl p-4 xs:p-5 sm:p-6 border transition-all duration-500 bg-surface-dark/40 glow-hover relative overflow-hidden ${
                     isHovered 
                       ? "border-primary-blue/30 -translate-y-1 shadow-[0_15px_35px_rgba(0,0,0,0.6)]" 
                       : "border-border-dark"
-                  } ${index === 2 && !isExpanded ? "max-h-[175px] border-b-transparent" : ""}`}
+                  } ${((!isMobile && index === 2) || (isMobile && index === 1)) && !isExpanded ? "max-h-[175px] border-b-transparent overflow-hidden" : ""}`}
                 >
-                  {/* Gradient mask for 3rd card when collapsed */}
-                  {index === 2 && !isExpanded && (
+                  {/* Gradient mask for collapsed card */}
+                  {((!isMobile && index === 2) || (isMobile && index === 1)) && !isExpanded && (
                     <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent pointer-events-none z-20" />
                   )}
 
@@ -98,7 +107,7 @@ export function Timeline() {
                   />
 
                   {/* Header metadata */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-dark pb-4 mb-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-dark pb-3 xs:pb-4 mb-3 xs:mb-4">
                     <div className="flex items-center gap-2">
                       <div className="p-2.5 rounded-lg bg-white/5 border border-white/5 text-primary-blue">
                         <Briefcase className="w-4.5 h-4.5" />
@@ -119,12 +128,12 @@ export function Timeline() {
                   </div>
 
                   {/* Main Job Description */}
-                  <p className="text-xs text-text-secondary leading-relaxed mb-5">
+                  <p className="text-xs text-text-secondary leading-relaxed mb-4 xs:mb-5">
                     {exp.description}
                   </p>
 
                   {/* Accomplishment Outcomes Section */}
-                  <div className="flex flex-col gap-3 mb-5">
+                  <div className="flex flex-col gap-2.5 xs:gap-3 mb-4 xs:mb-5">
                     <div className="flex items-center gap-1 text-[11px] font-mono text-primary-blue font-bold tracking-wider uppercase">
                       <TrendingUp className="w-3.5 h-3.5" />
                       <span>{t("results_critical")}</span>
@@ -159,7 +168,9 @@ export function Timeline() {
             </motion.div>
           );
 
-          if (index === 3) {
+          const isHiddenWrapped = (!isMobile && index === 3) || (isMobile && index >= 2);
+
+          if (isHiddenWrapped) {
             return (
               <motion.div
                 key={exp.id}
