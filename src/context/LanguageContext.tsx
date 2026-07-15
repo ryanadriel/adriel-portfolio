@@ -105,7 +105,75 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     explore_architecture: "Explorar Arquitetura",
     infra_specs: "ESPECIFICAÇÕES DA INFRAESTRUTURA",
     btn_code: "CÓDIGO",
-    btn_preview: "PREVIEW"
+    btn_preview: "PREVIEW",
+    interactive_nodes_banner: "Interativo: Toque nos nós para propagar pacotes",
+    category_gateway_ingress: "Gateway de Entrada",
+    category_edge_routing: "Roteamento de Borda",
+    category_orquestracao: "Orquestração",
+    category_app_layer: "Camada de Aplicação",
+    category_caching_queues: "Cache e Filas",
+    category_persistence_layer: "Camada de Persistência",
+    category_messaging: "Mensageria",
+
+    // Interactive Architecture Node Translations
+    label_tech: "TECNOLOGIA:",
+    label_spec: "CARGA / SPEC:",
+    
+    node_client_name: "Clientes (SPA / Mobile)",
+    node_client_tech: "HTTP/2 / WebSockets",
+    node_client_spec: "TLS 1.3 • CORS Protegido",
+    node_client_description: "Clientes externos realizando chamadas de API concorrentes com compressão Gzip/Brotli e cabeçalhos de segurança estritos.",
+    node_client_metricLabel: "Requests / seg",
+    node_client_metricValue: "420 req/s",
+
+    node_cloudflare_name: "Cloudflare & WAF",
+    node_cloudflare_tech: "Edge Engine",
+    node_cloudflare_spec: "WAF Ativo • DDoS Mitigation",
+    node_cloudflare_description: "Camada de segurança inteligente de borda. Bloqueia ameaças do OWASP Top 10, gerencia certificado SSL e atua como rate-limiter inicial.",
+    node_cloudflare_metricLabel: "Spam Bloqueado",
+    node_cloudflare_metricValue: "99.8%",
+
+    node_gateway_name: "API Gateway",
+    node_gateway_tech: "Custom Gateway",
+    node_gateway_spec: "Idempotency Token Validator",
+    node_gateway_description: "Porta de entrada interna do ecossistema. Roteia requisições, valida tokens JWT, injeta cabeçalhos de tenant e gerencia assinaturas de webhook.",
+    node_gateway_metricLabel: "Tempo de Roteamento",
+    node_gateway_metricValue: "0.8ms",
+
+    node_laravel_name: "Laravel Cluster (SaaS Engine)",
+    node_laravel_tech: "PHP 8.3 / Octane",
+    node_laravel_spec: "Multi-Tenant Schema Router",
+    node_laravel_description: "Servidor de aplicação responsável pela lógica de negócios robusta, orquestração de faturamentos da Nexora e roteamento dinâmico de inquilinos.",
+    node_laravel_metricLabel: "Tempo de Execução",
+    node_laravel_metricValue: "24ms",
+
+    node_springboot_name: "Spring Boot (Gateway de Transações)",
+    node_springboot_tech: "Java 21 / Spring Boot 3",
+    node_springboot_spec: "WebFlux • Circuit Breaker",
+    node_springboot_description: "Serviço financeiro reativo e resiliente responsável pelas transações da OfficePay. Implementa mTLS e isolamento estrito contra concorrência.",
+    node_springboot_metricLabel: "Latência Crítica",
+    node_springboot_metricValue: "12ms",
+
+    node_redis_name: "Redis Cache Layer",
+    node_redis_tech: "Redis Cluster 7",
+    node_redis_spec: "Cache In-Memory • Rate-Limiting",
+    node_redis_description: "Armazenamento chave-valor de baixíssima latência. Armazena sessões, tokens de acesso revogados e gerencia filas rápidas de prioridade.",
+    node_redis_metricLabel: "Hit Rate",
+    node_redis_metricValue: "94.2%",
+
+    node_postgres_name: "PostgreSQL Database",
+    node_postgres_tech: "PostgreSQL 16",
+    node_postgres_spec: "Schemas Isolados • Write-Replica",
+    node_postgres_description: "Banco de dados relacional robusto com isolamento de esquemas físicos por cliente (SaaS Multi-tenant). Indexado para buscas otimizadas.",
+    node_postgres_metricLabel: "Index Cache Hit",
+    node_postgres_metricValue: "99.1%",
+
+    node_rabbitmq_name: "RabbitMQ Broker",
+    node_rabbitmq_tech: "RabbitMQ Cluster",
+    node_rabbitmq_spec: "AMQP • Filas Persistentes",
+    node_rabbitmq_description: "Mensageria assíncrona responsável por processar e enfileirar tarefas pesadas em background, como webhooks lentos e relatórios em lote.",
+    node_rabbitmq_metricLabel: "Mensagens em Fila",
+    node_rabbitmq_metricValue: "0 Ativas"
   },
   en: {
     // Header & Navigation
@@ -196,7 +264,75 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     explore_architecture: "Explore Architecture",
     infra_specs: "INFRASTRUCTURE SPECIFICATIONS",
     btn_code: "CODE",
-    btn_preview: "PREVIEW"
+    btn_preview: "PREVIEW",
+    interactive_nodes_banner: "Interactive: Tap on nodes to propagate packets",
+    category_gateway_ingress: "Gateway Ingress",
+    category_edge_routing: "Edge Routing",
+    category_orquestracao: "Orchestration",
+    category_app_layer: "Application Layer",
+    category_caching_queues: "Caching & Queues",
+    category_persistence_layer: "Persistence Layer",
+    category_messaging: "Messaging",
+
+    // Interactive Architecture Node Translations
+    label_tech: "TECHNOLOGY:",
+    label_spec: "LOAD / SPEC:",
+    
+    node_client_name: "Clients (SPA / Mobile)",
+    node_client_tech: "HTTP/2 / WebSockets",
+    node_client_spec: "TLS 1.3 • CORS Protected",
+    node_client_description: "External clients making concurrent API calls with Gzip/Brotli compression and strict security headers.",
+    node_client_metricLabel: "Requests / sec",
+    node_client_metricValue: "420 req/s",
+
+    node_cloudflare_name: "Cloudflare & WAF",
+    node_cloudflare_tech: "Edge Engine",
+    node_cloudflare_spec: "Active WAF • DDoS Mitigation",
+    node_cloudflare_description: "Intelligent edge security layer. Blocks OWASP Top 10 threats, manages SSL certificates, and acts as the initial rate-limiter.",
+    node_cloudflare_metricLabel: "Spam Blocked",
+    node_cloudflare_metricValue: "99.8%",
+
+    node_gateway_name: "API Gateway",
+    node_gateway_tech: "Custom Gateway",
+    node_gateway_spec: "Idempotency Token Validator",
+    node_gateway_description: "Internal entry point of the ecosystem. Routes requests, validates JWT tokens, injects tenant headers, and manages webhook subscriptions.",
+    node_gateway_metricLabel: "Routing Time",
+    node_gateway_metricValue: "0.8ms",
+
+    node_laravel_name: "Laravel Cluster (SaaS Engine)",
+    node_laravel_tech: "PHP 8.3 / Octane",
+    node_laravel_spec: "Multi-Tenant Schema Router",
+    node_laravel_description: "Application server responsible for robust business logic, Nexora billing orchestration, and dynamic tenant routing.",
+    node_laravel_metricLabel: "Execution Time",
+    node_laravel_metricValue: "24ms",
+
+    node_springboot_name: "Spring Boot (Transaction Gateway)",
+    node_springboot_tech: "Java 21 / Spring Boot 3",
+    node_springboot_spec: "WebFlux • Circuit Breaker",
+    node_springboot_description: "Reactive and resilient financial service responsible for OfficePay transactions. Implements mTLS and strict concurrency isolation.",
+    node_springboot_metricLabel: "Critical Latency",
+    node_springboot_metricValue: "12ms",
+
+    node_redis_name: "Redis Cache Layer",
+    node_redis_tech: "Redis Cluster 7",
+    node_redis_spec: "In-Memory Cache • Rate-Limiting",
+    node_redis_description: "Ultra-low latency key-value storage. Stores sessions, revoked access tokens, and manages fast priority queues.",
+    node_redis_metricLabel: "Hit Rate",
+    node_redis_metricValue: "94.2%",
+
+    node_postgres_name: "PostgreSQL Database",
+    node_postgres_tech: "PostgreSQL 16",
+    node_postgres_spec: "Isolated Schemas • Write-Replica",
+    node_postgres_description: "Robust relational database with physical schema isolation per client (SaaS Multi-tenant). Indexed for optimized searches.",
+    node_postgres_metricLabel: "Index Cache Hit",
+    node_postgres_metricValue: "99.1%",
+
+    node_rabbitmq_name: "RabbitMQ Broker",
+    node_rabbitmq_tech: "RabbitMQ Cluster",
+    node_rabbitmq_spec: "AMQP • Persistent Queues",
+    node_rabbitmq_description: "Asynchronous messaging responsible for processing and queueing heavy background tasks, such as slow webhooks and batch reports.",
+    node_rabbitmq_metricLabel: "Queued Messages",
+    node_rabbitmq_metricValue: "0 Active"
   }
 };
 

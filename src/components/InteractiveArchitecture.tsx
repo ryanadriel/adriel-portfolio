@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { useLanguage } from "../context/LanguageContext.tsx";
 import { 
   Server, Database, Cpu, Network, HardDrive, 
   Terminal, ShieldCheck, Zap, Layers, RefreshCw, Send
@@ -32,7 +33,7 @@ const ARCHITECTURE_NODES: NodeDetail[] = [
   {
     id: "node-client",
     name: "Clientes (SPA / Mobile)",
-    category: "Gateway Ingress",
+    category: "category_gateway_ingress",
     status: "ONLINE",
     tech: "HTTP/2 / WebSockets",
     spec: "TLS 1.3 • CORS Protegido",
@@ -43,7 +44,7 @@ const ARCHITECTURE_NODES: NodeDetail[] = [
   {
     id: "node-cloudflare",
     name: "Cloudflare & WAF",
-    category: "Edge Routing",
+    category: "category_edge_routing",
     status: "ONLINE",
     tech: "Edge Engine",
     spec: "WAF Ativo • DDoS Mitigation",
@@ -54,7 +55,7 @@ const ARCHITECTURE_NODES: NodeDetail[] = [
   {
     id: "node-gateway",
     name: "API Gateway",
-    category: "Orquestração",
+    category: "category_orquestracao",
     status: "ONLINE",
     tech: "Custom Gateway",
     spec: "Idempotency Token Validator",
@@ -65,7 +66,7 @@ const ARCHITECTURE_NODES: NodeDetail[] = [
   {
     id: "node-laravel",
     name: "Laravel Cluster (SaaS Engine)",
-    category: "Application Layer",
+    category: "category_app_layer",
     status: "ONLINE",
     tech: "PHP 8.3 / Octane",
     spec: "Multi-Tenant Schema Router",
@@ -76,7 +77,7 @@ const ARCHITECTURE_NODES: NodeDetail[] = [
   {
     id: "node-springboot",
     name: "Spring Boot (Gateway de Transações)",
-    category: "Application Layer",
+    category: "category_app_layer",
     status: "ONLINE",
     tech: "Java 21 / Spring Boot 3",
     spec: "WebFlux • Circuit Breaker",
@@ -87,7 +88,7 @@ const ARCHITECTURE_NODES: NodeDetail[] = [
   {
     id: "node-redis",
     name: "Redis Cache Layer",
-    category: "Caching & Queues",
+    category: "category_caching_queues",
     status: "ONLINE",
     tech: "Redis Cluster 7",
     spec: "Cache In-Memory • Rate-Limiting",
@@ -98,7 +99,7 @@ const ARCHITECTURE_NODES: NodeDetail[] = [
   {
     id: "node-postgres",
     name: "PostgreSQL Database",
-    category: "Persistence Layer",
+    category: "category_persistence_layer",
     status: "ONLINE",
     tech: "PostgreSQL 16",
     spec: "Schemas Isolados • Write-Replica",
@@ -109,7 +110,7 @@ const ARCHITECTURE_NODES: NodeDetail[] = [
   {
     id: "node-rabbitmq",
     name: "RabbitMQ Broker",
-    category: "Messaging",
+    category: "category_messaging",
     status: "ONLINE",
     tech: "RabbitMQ Cluster",
     spec: "AMQP • Filas Persistentes",
@@ -163,6 +164,7 @@ const INITIAL_LOGS: TelemetryLog[] = [
 ];
 
 export function InteractiveArchitecture() {
+  const { t } = useLanguage();
   const [selectedNode, setSelectedNode] = useState<NodeDetail>(ARCHITECTURE_NODES[3]); // Laravel by default
   const [logs, setLogs] = useState<TelemetryLog[]>(INITIAL_LOGS);
   const [activePaths, setActivePaths] = useState<string[]>(["path-1", "path-2", "path-3"]);
@@ -506,7 +508,7 @@ export function InteractiveArchitecture() {
         {/* Small Floating Instruction Banner */}
         <div className="absolute bottom-2 left-4 flex items-center gap-1.5 text-[9px] font-mono text-text-muted">
           <span className="w-1.5 h-1.5 rounded-full bg-primary-blue animate-ping" />
-          <span>Interativo: Toque nos nós para propagar pacotes</span>
+          <span>{t("interactive_nodes_banner")}</span>
         </div>
       </div>
 
@@ -517,7 +519,7 @@ export function InteractiveArchitecture() {
           <div className="flex flex-col gap-1.5 overflow-hidden">
             <div className="flex items-center justify-between">
               <span className="text-[9px] font-mono tracking-widest text-primary-blue font-bold uppercase">
-                {selectedNode.category}
+                {t(selectedNode.category)}
               </span>
               <span className="flex items-center gap-1 text-[8px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
                 <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
@@ -525,28 +527,28 @@ export function InteractiveArchitecture() {
               </span>
             </div>
             <h3 className="text-sm font-serif font-bold text-text-primary leading-tight">
-              {selectedNode.name}
+              {t(`${selectedNode.id.replace('-', '_')}_name`)}
             </h3>
             <p className="text-[11px] text-text-secondary leading-relaxed line-clamp-3">
-              {selectedNode.description}
+              {t(`${selectedNode.id.replace('-', '_')}_description`)}
             </p>
           </div>
 
           <div className="border-t border-border-dark/60 pt-2 flex flex-col gap-1 mt-auto">
             <div className="grid grid-cols-2 gap-2 text-[9px] font-mono">
               <div className="flex flex-col">
-                <span className="text-text-muted">TECNOLOGIA:</span>
-                <span className="text-text-primary font-bold truncate">{selectedNode.tech}</span>
+                <span className="text-text-muted">{t("label_tech")}</span>
+                <span className="text-text-primary font-bold truncate">{t(`${selectedNode.id.replace('-', '_')}_tech`)}</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-text-muted">CARGA / SPEC:</span>
-                <span className="text-text-primary font-bold truncate">{selectedNode.spec}</span>
+                <span className="text-text-muted">{t("label_spec")}</span>
+                <span className="text-text-primary font-bold truncate">{t(`${selectedNode.id.replace('-', '_')}_spec`)}</span>
               </div>
             </div>
 
             <div className="flex items-center justify-between bg-white/5 border border-white/5 rounded px-2 py-1 mt-1">
-              <span className="text-[9px] font-mono text-text-secondary">{selectedNode.metricLabel}:</span>
-              <span className="text-xs font-mono font-bold text-primary-blue">{selectedNode.metricValue}</span>
+              <span className="text-[9px] font-mono text-text-secondary">{t(`${selectedNode.id.replace('-', '_')}_metricLabel`)}:</span>
+              <span className="text-xs font-mono font-bold text-primary-blue">{t(`${selectedNode.id.replace('-', '_')}_metricValue`)}</span>
             </div>
           </div>
         </div>
@@ -575,7 +577,7 @@ export function InteractiveArchitecture() {
                 log.method === "DELETE" ? "text-[#E06C75]" : "text-[#ABB2BF]";
 
               return (
-                <div key={log.id} className="flex items-center gap-2 hover:bg-white/5 px-2 py-0.5 rounded transition-colors duration-150 border-b border-border-dark/10 text-[9px] min-w-0 w-full overflow-hidden">
+                <div key={log.id} className="flex items-center gap-2 hover:bg-white/5 px-2 py-0.5 rounded transition-colors duration-150 border-b border-border-dark/10 text-[9px] min-w-0 w-full overflow-hidden shrink-0">
                   <span className="text-text-muted text-[8px] font-mono shrink-0">[{log.timestamp}]</span>
                   <span className={`${methodColor} font-bold text-[8px] font-mono shrink-0 w-8 text-center`}>{log.method}</span>
                   <span className="text-text-primary truncate max-w-[90px] xs:max-w-[110px] sm:max-w-[150px] font-medium shrink-0" title={log.endpoint}>{log.endpoint}</span>
