@@ -54,7 +54,7 @@ export function Header({ activeSection }: HeaderProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-[background-color,padding,box-shadow,border-color] duration-300 ${
           isScrolled
             ? "bg-[#111]/55 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)] border-b border-[#1D1D1D]/60"
             : "bg-[#080808]/40 py-5 border-b border-transparent"
