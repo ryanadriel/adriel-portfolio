@@ -115,9 +115,9 @@ export default function App() {
       {/* 1. HERO SECTION */}
       <section 
         id="hero" 
-        className="relative pt-24 pb-14 md:pt-28 md:pb-16 lg:min-h-[calc(100vh-80px)] flex items-center justify-center border-b border-border-dark/40 z-10"
+        className="relative pt-20 pb-14 md:pt-28 md:pb-16 lg:min-h-[calc(100vh-80px)] flex items-center justify-center border-b border-border-dark/40 z-10"
       >
-        <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Hero Left Content (7 columns on desktop) */}
           <div className="lg:col-span-6 flex flex-col gap-6 items-start text-left">
             
@@ -154,10 +154,10 @@ export default function App() {
             </p>
 
             {/* Action buttons (Editorial Minimalist style) */}
-            <div className="flex flex-wrap gap-3 mt-2 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto">
               <button
                 onClick={() => handleScrollTo("projects")}
-                className="px-6 py-3 rounded-md bg-primary-blue hover:bg-primary-blue/90 text-xs font-mono font-bold tracking-wider text-white flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer shadow-md"
+                className="w-full sm:w-auto px-6 py-3 rounded-md bg-primary-blue hover:bg-primary-blue/90 text-xs font-mono font-bold tracking-wider text-white flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer shadow-md text-center"
                 id="hero-view-projects-btn"
               >
                 <span>{t("btn_view_projects")}</span>
@@ -166,7 +166,7 @@ export default function App() {
 
               <button
                 onClick={() => handleScrollTo("contact")}
-                className="px-6 py-3 rounded-md border border-border-dark hover:border-primary-blue/50 text-xs font-mono font-bold tracking-wider text-text-secondary hover:text-primary-blue bg-transparent transition-all duration-300 cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3 rounded-md border border-border-dark hover:border-primary-blue/50 text-xs font-mono font-bold tracking-wider text-text-secondary hover:text-primary-blue bg-transparent transition-all duration-300 cursor-pointer flex items-center justify-center text-center"
                 id="hero-contact-btn"
               >
                 <span>{t("btn_talk_to_me")}</span>
@@ -195,8 +195,8 @@ export default function App() {
         id="about" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col gap-3 mb-14 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+          <div className="flex flex-col gap-2 mb-10 md:mb-14 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("about_title")}
             </span>
@@ -282,8 +282,8 @@ export default function App() {
         id="experience" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col gap-3 mb-16 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+          <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("exp_title")}
             </span>
@@ -301,8 +301,8 @@ export default function App() {
         id="projects" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col gap-3 mb-16 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+          <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("projects_title")}
             </span>
@@ -320,8 +320,8 @@ export default function App() {
         id="skills" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col gap-3 mb-14 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+          <div className="flex flex-col gap-2 mb-10 md:mb-14 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("skills_title")}
             </span>
@@ -339,8 +339,8 @@ export default function App() {
         id="principles" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col gap-3 mb-16 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+          <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("principles_title")}
             </span>
@@ -358,8 +358,8 @@ export default function App() {
         id="contact" 
         className="py-14 sm:py-16 md:py-20 lg:py-24"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col gap-3 mb-16 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+          <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("contact_title")}
             </span>

@@ -53,7 +53,7 @@ export function SkillsGrid() {
   return (
     <div className="flex flex-col gap-8 w-full">
       {/* Interactive Category Selector Tabs */}
-      <div className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:justify-center gap-2 border-b border-border-dark/60 pb-4 md:pb-6 px-4 md:px-0 -mx-6 md:mx-0">
+      <div className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:justify-center gap-2 border-b border-border-dark/60 pb-4 md:pb-6 px-4 xs:px-6 md:px-0 -mx-4 xs:-mx-6 md:mx-0">
         {categories.map((cat) => {
           const isActive = selectedCategory === cat;
           return (
