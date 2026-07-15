@@ -37,7 +37,7 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
 
     // About Me
     about_title: "SOBRE MIM",
-    about_subtitle: "Arquitetura voltada para resolver problemas complexos.",
+    about_subtitle: "Arquitetura e resolução de problemas complexos.",
     about_p1: "Olá! Sou Adriel Barbosa, Engenheiro de Software Backend especialista no desenho e implementação de ecossistemas robustos de alta performance, soluções de mensageria concorrente e estruturas SaaS multi-tenant complexas.",
     about_p2: "Minha abordagem prática de engenharia é fortemente pautada em Clean Code, SOLID, DDD (Domain-Driven Design) e Clean Architecture. Isso garante que as regras de negócio de sua corporação permaneçam completamente isoladas de dependências de infraestrutura ou acoplamentos técnicos desnecessários, gerando bases de código modulares e preparadas para escalabilidade horizontal.",
     about_p3: "No dia a dia de produção, opero com conteinerização estrita usando Docker, estruturo caches de dados de altíssima velocidade via Redis, e configuro pipelines de integração e entrega contínua (CI/CD) com ganchos automatizados de auditoria estática e testes unitários/integração.",
@@ -50,14 +50,14 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
 
     // Experience Section Title
     exp_title: "TRAJETÓRIA PROFISSIONAL",
-    exp_subtitle: "Minha jornada no desenvolvimento de soluções escaláveis de backend.",
+    exp_subtitle: "Minha jornada no desenvolvimento.",
     results_critical: "Resultados e Entregas Críticas",
     btn_full_trajectory: "VER TRAJETÓRIA COMPLETA",
     btn_collapse_trajectory: "RECOLHER TRAJETÓRIA",
 
     // Projects Section Title
     projects_title: "SISTEMAS DESENVOLVIDOS",
-    projects_subtitle: "Sistemas em produção, arquiteturas empresariais e templates reutilizáveis de alta performance.",
+    projects_subtitle: "Sistemas e arquiteturas de alta performance.",
     other_backend_projects: "Outros Projetos Backend",
     other_backend_desc: "Explore todo o meu portfólio de sistemas, APIs RESTful e automações de alta performance diretamente no GitHub.",
     btn_view_more: "VER MAIS",
@@ -67,20 +67,20 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
 
     // Skills Section Title
     skills_title: "CONHECIMENTO TÉCNICO",
-    skills_subtitle: "Meu arsenal técnico avaliado por proficiência e tempo de aplicação em cenários de produção real.",
+    skills_subtitle: "Meu arsenal técnico em cenários reais de produção.",
     btn_more_skills: "VER MAIS CONHECIMENTOS",
     btn_less_skills: "RECOLHER CONHECIMENTOS",
 
     // Principles Section Title
     principles_title: "FILOSOFIA DE ENGENHARIA",
-    principles_subtitle: "Princípios práticos de desenvolvimento de software que guiam cada decisão arquitetural que tomo.",
+    principles_subtitle: "Princípios que guiam minhas decisões técnicas.",
     metric_focus: "MÉTRICA DE FOCO:",
     btn_more_principles: "VER MAIS PRINCÍPIOS",
     btn_less_principles: "RECOLHER PRINCÍPIOS",
 
     // Contact Section Title
     contact_title: "CONTATO E OPORTUNIDADES",
-    contact_subtitle: "Traga Alta Performance para o seu Time.",
+    contact_subtitle: "Traga alta performance para o seu time.",
     contact_direct: "CONTATO DIRETO",
     contact_form_title: "Inicie uma conversa profissional de engenharia.",
     contact_form_desc: "Se você está buscando um Engenheiro de Software Backend focado em resolver problemas complexos com Laravel, PHP de alta performance, arquiteturas resilientes e Clean Architecture para integrar seu time, entre em contato.",
@@ -128,7 +128,7 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
 
     // About Me
     about_title: "ABOUT ME",
-    about_subtitle: "Architecture designed to solve complex problems.",
+    about_subtitle: "Architecture and complex problem solving.",
     about_p1: "Hello! I'm Adriel Barbosa, a Backend Software Engineer specialized in designing and implementing high-performance robust ecosystems, concurrent messaging solutions, and complex multi-tenant SaaS architectures.",
     about_p2: "My practical engineering approach is strongly based on Clean Code, SOLID, DDD (Domain-Driven Design), and Clean Architecture. This ensures that your company's business rules remain completely isolated from infrastructure dependencies or unnecessary technical coupling, generating modular codebases prepared for horizontal scalability.",
     about_p3: "In daily production, I operate with strict containerization using Docker, structure high-speed data caching via Redis, and configure continuous integration and delivery (CI/CD) pipelines with automated static audit hooks and unit/integration testing.",
@@ -141,14 +141,14 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
 
     // Experience Section Title
     exp_title: "PROFESSIONAL EXPERIENCE",
-    exp_subtitle: "My journey in developing scalable backend solutions.",
+    exp_subtitle: "My development journey",
     results_critical: "Critical Results & Deliveries",
     btn_full_trajectory: "VIEW FULL TRAJECTORY",
     btn_collapse_trajectory: "COLLAPSE TRAJECTORY",
 
     // Projects Section Title
     projects_title: "DEVELOPED SYSTEMS",
-    projects_subtitle: "Production systems, enterprise architectures, and high-performance reusable templates.",
+    projects_subtitle: "High-performance systems and architectures.",
     other_backend_projects: "Other Backend Projects",
     other_backend_desc: "Explore my entire portfolio of systems, RESTful APIs, and high-performance automations directly on GitHub.",
     btn_view_more: "VIEW MORE",
@@ -158,20 +158,20 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
 
     // Skills Section Title
     skills_title: "TECHNICAL KNOWLEDGE",
-    skills_subtitle: "My technical stack evaluated by proficiency and application time in real production scenarios.",
+    skills_subtitle: "My technical stack in real production scenarios.",
     btn_more_skills: "VIEW MORE SKILLS",
     btn_less_skills: "COLLAPSE SKILLS",
 
     // Principles Section Title
     principles_title: "ENGINEERING PHILOSOPHY",
-    principles_subtitle: "Practical software development principles that guide every architectural decision I make.",
+    principles_subtitle: "Principles guiding my technical decisions.",
     metric_focus: "FOCUS METRIC:",
     btn_more_principles: "VIEW MORE PRINCIPLES",
     btn_less_principles: "COLLAPSE PRINCIPLES",
 
     // Contact Section Title
     contact_title: "CONTACT & OPPORTUNITIES",
-    contact_subtitle: "Bring High Performance to Your Team.",
+    contact_subtitle: "Bring high performance to your team.",
     contact_direct: "DIRECT CONTACT",
     contact_form_title: "Start a professional engineering conversation.",
     contact_form_desc: "If you are looking for a Backend Software Engineer focused on solving complex problems with Laravel, PHP of high performance, resilient architectures, and Clean Architecture to join your team, please reach out.",
