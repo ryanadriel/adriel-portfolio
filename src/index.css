@@ -39,10 +39,11 @@ html, body {
 
 /* Premium utility classes */
 .glass-panel {
-  background: rgba(17, 17, 17, 0.85);
+  background: rgba(17, 17, 17, 0.55);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(29, 29, 29, 0.9);
+  will-change: backdrop-filter;
 }
 
 .glow-hover {
