@@ -30,7 +30,7 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     // Hero
     software_engineer: "Software Engineer",
     ssh_cluster: "adriel@production_cluster:~$ ssh saas_gateway",
-    hero_description: "Eu construo sistemas de backend modernos, APIs RESTful de alta performance e microsserviços integrados focados em código limpo, SOLID e segurança.",
+    hero_description: "Construo soluções backend com Laravel, desenvolvendo APIs, integrações e aplicações web que priorizam organização, simplicidade e facilidade de manutenção.",
     btn_view_projects: "VER PROJETOS",
     btn_talk_to_me: "FALE COMIGO",
     rolar_para_sobre: "Rolar para Sobre Mim",
@@ -38,9 +38,9 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     // About Me
     about_title: "SOBRE MIM",
     about_subtitle: "Arquitetura e resolução de problemas complexos.",
-    about_p1: "Olá! Sou Adriel Barbosa, Engenheiro de Software Backend especialista no desenho e implementação de ecossistemas robustos de alta performance, soluções de mensageria concorrente e estruturas SaaS multi-tenant complexas.",
-    about_p2: "Minha abordagem prática de engenharia é fortemente pautada em Clean Code, SOLID, DDD (Domain-Driven Design) e Clean Architecture. Isso garante que as regras de negócio de sua corporação permaneçam completamente isoladas de dependências de infraestrutura ou acoplamentos técnicos desnecessários, gerando bases de código modulares e preparadas para escalabilidade horizontal.",
-    about_p3: "No dia a dia de produção, opero com conteinerização estrita usando Docker, estruturo caches de dados de altíssima velocidade via Redis, e configuro pipelines de integração e entrega contínua (CI/CD) com ganchos automatizados de auditoria estática e testes unitários/integração.",
+    about_p1: "Olá! Sou Adriel Barbosa, Backend Software Engineer com sólido conhecimento em PHP e Laravel, com experiência no desenvolvimento de APIs REST, integrações entre sistemas e plataformas SaaS.",
+    about_p2: "Acredito que software de qualidade vai além de atender aos requisitos: ele deve ser bem estruturado, fácil de manter e preparado para evoluir. Por isso, busco aplicar princípios como Clean Code, SOLID e Clean Architecture de forma prática, construindo soluções organizadas, escaláveis e sustentáveis ao longo do tempo.",
+    about_p3: "Atualmente, meu trabalho está concentrado no desenvolvimento backend com Laravel, atuando na construção de aplicações que unem desempenho, confiabilidade e uma boa experiência para quem dará continuidade ao código.",
     metric_exp: "EXP. PROFISSIONAL",
     metric_exp_val: "3+ ANOS",
     metric_apis: "APIs INTEGRADAS",
@@ -121,7 +121,7 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     // Hero
     software_engineer: "Software Engineer",
     ssh_cluster: "adriel@production_cluster:~$ ssh saas_gateway",
-    hero_description: "I build modern backend systems, high-performance RESTful APIs, and integrated microservices focused on clean code, SOLID, and security.",
+    hero_description: "I build backend solutions using Laravel, developing APIs, integrations, and web applications that prioritize organization, simplicity, and maintainability.",
     btn_view_projects: "VIEW PROJECTS",
     btn_talk_to_me: "TALK TO ME",
     rolar_para_sobre: "Scroll to About Me",
@@ -129,9 +129,9 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     // About Me
     about_title: "ABOUT ME",
     about_subtitle: "Architecture and complex problem solving.",
-    about_p1: "Hello! I'm Adriel Barbosa, a Backend Software Engineer specialized in designing and implementing high-performance robust ecosystems, concurrent messaging solutions, and complex multi-tenant SaaS architectures.",
-    about_p2: "My practical engineering approach is strongly based on Clean Code, SOLID, DDD (Domain-Driven Design), and Clean Architecture. This ensures that your company's business rules remain completely isolated from infrastructure dependencies or unnecessary technical coupling, generating modular codebases prepared for horizontal scalability.",
-    about_p3: "In daily production, I operate with strict containerization using Docker, structure high-speed data caching via Redis, and configure continuous integration and delivery (CI/CD) pipelines with automated static audit hooks and unit/integration testing.",
+    about_p1: "Hello! I’m Adriel Barbosa, a Backend Software Engineer with solid expertise in PHP and Laravel, and experience developing REST APIs, system integrations, and SaaS platforms.",
+    about_p2: "I believe that quality software goes beyond merely meeting requirements: it must be well-structured, maintainable, and built to evolve. That’s why I apply principles like Clean Code, SOLID, and Clean Architecture in practice, creating solutions that are organized, scalable, and sustainable over the long term.",
+    about_p3: "Currently, my work focuses on backend development with Laravel, building applications that prioritize performance, reliability, and a positive experience for those who will maintain the codebase.",
     metric_exp: "PROFESSIONAL EXP.",
     metric_exp_val: "3+ YEARS",
     metric_apis: "INTEGRATED APIs",
