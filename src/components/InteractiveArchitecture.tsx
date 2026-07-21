@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "motion/react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { 
   Server, Database, Cpu, Network, HardDrive, 
@@ -171,6 +171,31 @@ export function InteractiveArchitecture() {
   const [isSimulating, setIsSimulating] = useState(false);
   const logsContainerRef = useRef<HTMLDivElement>(null);
 
+  // 3D Tilt motion state
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+
+  const springRotateX = useSpring(rotateX, { damping: 25, stiffness: 120 });
+  const springRotateY = useSpring(rotateY, { damping: 25, stiffness: 120 });
+
+  const handleCanvasMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const normX = x / rect.width - 0.5;
+    const normY = y / rect.height - 0.5;
+    
+    rotateX.set(-normY * 12); // Maximum 12 degrees rotation
+    rotateY.set(normX * 12);
+  };
+
+  const handleCanvasMouseLeave = () => {
+    rotateX.set(0);
+    rotateY.set(0);
+  };
+
   // Auto-scroll the logger terminal locally without scrolling the main window
   useEffect(() => {
     if (logsContainerRef.current) {
@@ -301,15 +326,33 @@ export function InteractiveArchitecture() {
 
   return (
     <div className="flex flex-col gap-5 w-full">
-      {/* Visual Canvas Panel */}
-      <div className="relative glass-panel rounded-2xl border border-border-dark bg-surface-dark/40 shadow-2xl overflow-hidden h-[190px] xs:h-[220px] sm:h-[280px] md:h-[380px] flex items-center justify-center">
+      {/* Visual Canvas Panel with 3D Parallax Hover */}
+      <motion.div 
+        onMouseMove={handleCanvasMouseMove}
+        onMouseLeave={handleCanvasMouseLeave}
+        style={{
+          rotateX: springRotateX,
+          rotateY: springRotateY,
+          transformStyle: "preserve-3d",
+          perspective: 1000,
+        }}
+        className="relative glass-panel rounded-2xl border border-border-dark bg-surface-dark/40 shadow-2xl overflow-hidden h-[190px] xs:h-[220px] sm:h-[280px] md:h-[380px] flex items-center justify-center cursor-crosshair group/canvas"
+      >
         {/* Ambient Grid Pattern in SVG Background */}
-        <div className="absolute inset-0 tech-grid-pattern opacity-30 radial-gradient-mask" />
+        <div className="absolute inset-0 tech-grid-pattern opacity-30 radial-gradient-mask" style={{ transform: "translateZ(-10px)" }} />
 
-        {/* Scaling Wrapper for absolute precision matching SVG lines to Nodes */}
-        <div className="absolute w-[600px] h-[300px] flex items-center justify-center scale-[0.45] min-[360px]:scale-[0.52] min-[400px]:scale-[0.6] min-[480px]:scale-[0.72] sm:scale-[0.85] md:scale-100 origin-center shrink-0">
-          {/* Laser / Signal Lines in absolute SVG */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 600 300" preserveAspectRatio="none">
+        {/* Scaling Wrapper with 3D Preservation */}
+        <div 
+          className="absolute w-[600px] h-[300px] flex items-center justify-center scale-[0.45] min-[360px]:scale-[0.52] min-[400px]:scale-[0.6] min-[480px]:scale-[0.72] sm:scale-[0.85] md:scale-100 origin-center shrink-0"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          {/* Laser / Signal Lines with 3D depth */}
+          <svg 
+            className="absolute inset-0 w-full h-full pointer-events-none" 
+            viewBox="0 0 600 300" 
+            preserveAspectRatio="none"
+            style={{ transform: "translateZ(10px)", transformStyle: "preserve-3d" }}
+          >
             {/* Signal paths definitions */}
             <g opacity="0.3">
               {/* Main trunk flow paths */}
@@ -369,8 +412,11 @@ export function InteractiveArchitecture() {
             </AnimatePresence>
           </svg>
 
-          {/* Graphical Node Overlay */}
-          <div className="relative w-full h-[280px] grid grid-cols-5 items-center justify-items-center gap-1">
+          {/* Graphical Node Overlay with Floating 3D perspective */}
+          <div 
+            className="relative w-full h-[280px] grid grid-cols-5 items-center justify-items-center gap-1"
+            style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}
+          >
             {/* Col 1: Ingress */}
             <div className="flex flex-col gap-2">
               <button
@@ -506,11 +552,14 @@ export function InteractiveArchitecture() {
         </div>
 
         {/* Small Floating Instruction Banner */}
-        <div className="absolute bottom-2 left-4 flex items-center gap-1.5 text-[9px] font-mono text-text-muted">
+        <div 
+          className="absolute bottom-2 left-4 flex items-center gap-1.5 text-[9px] font-mono text-text-muted"
+          style={{ transform: "translateZ(15px)" }}
+        >
           <span className="w-1.5 h-1.5 rounded-full bg-primary-blue animate-ping" />
           <span>{t("interactive_nodes_banner")}</span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Diagnostics Panel & Live Console Terminal */}
       <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-4 w-full">

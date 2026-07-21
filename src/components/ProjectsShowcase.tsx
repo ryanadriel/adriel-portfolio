@@ -270,7 +270,13 @@ export function ProjectsShowcase() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.08, duration: 0.4 }}
-              className="glass-panel rounded-xl border border-border-dark bg-surface-dark/40 overflow-hidden flex flex-col justify-between group glow-hover relative shadow-lg hover:-translate-y-1 transition-all duration-300 w-full"
+              whileHover={{ 
+                y: -6, 
+                scale: 1.015,
+                borderColor: "rgba(16, 114, 251, 0.35)",
+                boxShadow: "0 20px 40px -15px rgba(0,0,0,0.8), 0 0 30px rgba(16, 114, 251, 0.15)"
+              }}
+              className="glass-panel rounded-xl border border-border-dark bg-surface-dark/40 overflow-hidden flex flex-col justify-between group glow-hover relative shadow-lg w-full"
             >
               {index === 2 && (
                 <div className="absolute inset-0 z-30 backdrop-blur-[6px] bg-black/75 flex flex-col items-center justify-center p-4 xs:p-6 text-center transition-all duration-300">

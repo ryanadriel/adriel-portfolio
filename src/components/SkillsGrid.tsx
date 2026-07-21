@@ -101,8 +101,14 @@ export function SkillsGrid() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: (index % 9) * 0.04, duration: 0.2 }}
-                    className="glass-panel rounded-xl p-4 border border-border-dark bg-surface-dark/20 hover:border-border-dark transition-all duration-300 flex flex-col justify-between group glow-hover"
+                    whileHover={{ 
+                      y: -5, 
+                      scale: 1.015,
+                      borderColor: "rgba(16, 114, 251, 0.35)",
+                      boxShadow: "0 12px 30px -10px rgba(0,0,0,0.7), 0 0 20px rgba(16, 114, 251, 0.15)"
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="glass-panel rounded-xl p-4 border border-border-dark bg-surface-dark/20 flex flex-col justify-between group glow-hover cursor-default"
                   >
                     <div>
                       {/* Name, Category Badge & Progress Score */}
@@ -192,8 +198,14 @@ export function SkillsGrid() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.04, duration: 0.2 }}
-                      className="glass-panel rounded-xl p-4 border border-border-dark bg-surface-dark/20 hover:border-border-dark transition-all duration-300 flex flex-col justify-between group glow-hover"
+                      whileHover={{ 
+                        y: -5, 
+                        scale: 1.015,
+                        borderColor: "rgba(16, 114, 251, 0.35)",
+                        boxShadow: "0 12px 30px -10px rgba(0,0,0,0.7), 0 0 20px rgba(16, 114, 251, 0.15)"
+                      }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="glass-panel rounded-xl p-4 border border-border-dark bg-surface-dark/20 flex flex-col justify-between group glow-hover cursor-default"
                     >
                       <div>
                         {/* Name & Progress Score */}

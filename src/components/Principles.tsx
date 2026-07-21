@@ -83,8 +83,15 @@ export function Principles() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
+                whileHover={{ 
+                  y: -5, 
+                  scale: 1.015,
+                  borderColor: "rgba(16, 114, 251, 0.35)",
+                  boxShadow: "0 15px 35px -10px rgba(0,0,0,0.7), 0 0 20px rgba(16, 114, 251, 0.12)"
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 layout
-                className="glass-panel rounded-2xl p-4 xs:p-5 border border-border-dark bg-surface-dark/15 hover:border-border-dark flex flex-col justify-between gap-4 group glow-hover relative transition-all duration-300 shadow-md"
+                className="glass-panel rounded-2xl p-4 xs:p-5 border border-border-dark bg-surface-dark/15 flex flex-col justify-between gap-4 group glow-hover relative shadow-md cursor-default"
               >
                 {/* Top Line Decorator */}
                 <div className="absolute top-0 inset-x-8 h-[1px] bg-gradient-to-r from-transparent via-primary-blue/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

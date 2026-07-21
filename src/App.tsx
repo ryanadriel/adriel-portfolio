@@ -13,6 +13,7 @@ import { ProjectsShowcase } from "./components/ProjectsShowcase.tsx";
 import { Principles } from "./components/Principles.tsx";
 import { ContactForm } from "./components/ContactForm.tsx";
 import { Footer } from "./components/Footer.tsx";
+import { InteractiveGrid } from "./components/InteractiveGrid.tsx";
 import { useLanguage } from "./context/LanguageContext.tsx";
 import { 
   ArrowDown, Code2, Terminal, Cpu, Database, Cloud, 
@@ -95,8 +96,8 @@ export default function App() {
   return (
     <div className="bg-[#080808] text-white min-h-screen flex flex-col font-sans relative overflow-x-hidden selection:bg-primary-blue/30 selection:text-white">
       
-      {/* Editorial Grid Lines Backdrop */}
-      <div className="absolute inset-0 editorial-grid-lines pointer-events-none z-0" />
+      {/* Interactive Grid Lines Backdrop */}
+      <InteractiveGrid />
 
       {/* Top Scroll Indicator */}
       <motion.div 
@@ -119,16 +120,51 @@ export default function App() {
       >
         <div className="max-w-7xl mx-auto px-4 xs:px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Hero Left Content (7 columns on desktop) */}
-          <div className="lg:col-span-6 flex flex-col gap-6 items-start text-left">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.12,
+                  delayChildren: 0.1,
+                }
+              }
+            }}
+            className="lg:col-span-6 flex flex-col gap-6 items-start text-left"
+          >
             
             {/* Embedded Active SSH Console Tag */}
-            <div className="flex items-center gap-2 bg-[#111111] border border-border-dark px-4 py-1.5 rounded-full text-[11px] font-mono font-semibold text-text-secondary select-none animate-float shadow-sm">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, y: -20, scale: 0.95 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { type: "spring", stiffness: 100, damping: 15 } 
+                }
+              }}
+              className="flex items-center gap-2 bg-[#111111] border border-border-dark px-4 py-1.5 rounded-full text-[11px] font-mono font-semibold text-text-secondary select-none animate-float shadow-sm"
+            >
               <span className="w-1.5 h-1.5 rounded-sm bg-primary-blue animate-pulse" />
               <span className="hidden md:inline">adriel@production_cluster:~$ ssh saas_gateway</span>
-            </div>
+            </motion.div>
 
             {/* Title & Headline (Editorial Aesthetic font-serif) */}
-            <div className="flex flex-col gap-3">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { type: "spring", stiffness: 80, damping: 14 }
+                }
+              }}
+              className="flex flex-col gap-3"
+            >
               <span className="editorial-badge w-fit">{t("software_engineer")}</span>
               <h1 className="text-4xl xs:text-5xl md:text-6xl lg:text-[64px] font-serif font-bold tracking-tight text-white leading-[1.1]">
                 Adriel Barbosa
@@ -146,38 +182,67 @@ export default function App() {
                 <span className="w-1 h-1 rounded-full bg-text-muted mx-2.5" />
                 <span>REST APIs</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Subtext description */}
-            <p className="text-sm md:text-base text-text-secondary leading-relaxed max-w-lg font-normal">
+            <motion.p 
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { type: "spring", stiffness: 80, damping: 14 }
+                }
+              }}
+              className="text-sm md:text-base text-text-secondary leading-relaxed max-w-lg font-normal"
+            >
               {t("hero_description")}
-            </p>
+            </motion.p>
 
             {/* Action buttons (Editorial Minimalist style) */}
-            <div className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto">
-              <button
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { type: "spring", stiffness: 80, damping: 14 }
+                }
+              }}
+              className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto"
+            >
+              <motion.button
+                whileHover={{ y: -3, scale: 1.02, boxShadow: "0 10px 25px -5px rgba(16, 114, 251, 0.4)" }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleScrollTo("projects")}
-                className="w-full sm:w-auto px-6 py-3 rounded-md bg-primary-blue hover:bg-primary-blue/90 text-xs font-mono font-bold tracking-wider text-white flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer shadow-md text-center"
+                className="w-full sm:w-auto px-6 py-3 rounded-md bg-primary-blue text-xs font-mono font-bold tracking-wider text-white flex items-center justify-center gap-2 cursor-pointer transition-colors duration-200 shadow-md text-center"
                 id="hero-view-projects-btn"
               >
                 <span>{t("btn_view_projects")}</span>
                 <ChevronRight className="w-4 h-4" />
-              </button>
-
-              <button
+              </motion.button>
+ 
+              <motion.button
+                whileHover={{ y: -3, scale: 1.02, borderColor: "rgba(16, 114, 251, 0.6)", backgroundColor: "rgba(16, 114, 251, 0.05)" }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleScrollTo("contact")}
-                className="w-full sm:w-auto px-6 py-3 rounded-md border border-border-dark hover:border-primary-blue/50 text-xs font-mono font-bold tracking-wider text-text-secondary hover:text-primary-blue bg-transparent transition-all duration-300 cursor-pointer flex items-center justify-center text-center"
+                className="w-full sm:w-auto px-6 py-3 rounded-md border border-border-dark text-xs font-mono font-bold tracking-wider text-text-secondary hover:text-primary-blue bg-transparent cursor-pointer transition-colors duration-200 flex items-center justify-center text-center"
                 id="hero-contact-btn"
               >
                 <span>{t("btn_talk_to_me")}</span>
-              </button>
-            </div>
-          </div>
+              </motion.button>
+            </motion.div>
+          </motion.div>
 
           {/* Hero Right Content: Visual System Interactive Architecture Sandbox (6 columns) */}
-          <div className="lg:col-span-6 w-full flex items-center justify-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.96, x: 25 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 60, damping: 15, delay: 0.35 }}
+            className="lg:col-span-6 w-full flex items-center justify-center"
+          >
             <InteractiveArchitecture />
-          </div>
+          </motion.div>
         </div>
 
         {/* Ambient Arrow Indicator */}
@@ -195,7 +260,13 @@ export default function App() {
         id="about" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
-        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-7xl mx-auto px-4 xs:px-6"
+        >
           <div className="flex flex-col gap-2 mb-10 md:mb-14 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("about_title")}
@@ -274,7 +345,7 @@ export default function App() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 3. EXPERIENCE SECTION */}
@@ -282,7 +353,13 @@ export default function App() {
         id="experience" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40"
       >
-        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-7xl mx-auto px-4 xs:px-6"
+        >
           <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("exp_title")}
@@ -293,7 +370,7 @@ export default function App() {
           </div>
 
           <Timeline />
-        </div>
+        </motion.div>
       </section>
 
       {/* 4. FEATURED PROJECTS SECTION */}
@@ -301,7 +378,13 @@ export default function App() {
         id="projects" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
-        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-7xl mx-auto px-4 xs:px-6"
+        >
           <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("projects_title")}
@@ -312,7 +395,7 @@ export default function App() {
           </div>
 
           <ProjectsShowcase />
-        </div>
+        </motion.div>
       </section>
 
       {/* 5. SKILLS GRID SECTION */}
@@ -320,7 +403,13 @@ export default function App() {
         id="skills" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40"
       >
-        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-7xl mx-auto px-4 xs:px-6"
+        >
           <div className="flex flex-col gap-2 mb-10 md:mb-14 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("skills_title")}
@@ -331,7 +420,7 @@ export default function App() {
           </div>
 
           <SkillsGrid />
-        </div>
+        </motion.div>
       </section>
 
       {/* 6. ENGINEERING PRINCIPLES SECTION */}
@@ -339,7 +428,13 @@ export default function App() {
         id="principles" 
         className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
       >
-        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-7xl mx-auto px-4 xs:px-6"
+        >
           <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("principles_title")}
@@ -350,7 +445,7 @@ export default function App() {
           </div>
 
           <Principles />
-        </div>
+        </motion.div>
       </section>
 
       {/* 7. CONTACT SECTION */}
@@ -358,7 +453,13 @@ export default function App() {
         id="contact" 
         className="py-14 sm:py-16 md:py-20 lg:py-24"
       >
-        <div className="max-w-7xl mx-auto px-4 xs:px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-7xl mx-auto px-4 xs:px-6"
+        >
           <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
             <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
               {t("contact_title")}
@@ -369,7 +470,7 @@ export default function App() {
           </div>
 
           <ContactForm />
-        </div>
+        </motion.div>
       </section>
 
       {/* FOOTER */}
