@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ArrowUpRight, Home, User, Briefcase, Code2, Cpu, Compass, Mail, Globe } from "lucide-react";
+import { Menu, X, ArrowUpRight, Home, User, Briefcase, Code2, Cpu, Mail, Globe } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 
 interface HeaderProps {
@@ -30,7 +30,6 @@ export function Header({ activeSection }: HeaderProps) {
     { id: "experience", label: t("nav_experience"), icon: Briefcase },
     { id: "projects", label: t("nav_projects"), icon: Code2 },
     { id: "skills", label: t("nav_skills"), icon: Cpu },
-    { id: "principles", label: t("nav_principles"), icon: Compass },
     { id: "contact", label: t("nav_contact"), icon: Mail },
   ];
 

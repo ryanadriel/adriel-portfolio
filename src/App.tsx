@@ -10,7 +10,6 @@ import { InteractiveArchitecture } from "./components/InteractiveArchitecture.ts
 import { Timeline } from "./components/Timeline.tsx";
 import { SkillsGrid } from "./components/SkillsGrid.tsx";
 import { ProjectsShowcase } from "./components/ProjectsShowcase.tsx";
-import { Principles } from "./components/Principles.tsx";
 import { ContactForm } from "./components/ContactForm.tsx";
 import { Footer } from "./components/Footer.tsx";
 import { InteractiveGrid } from "./components/InteractiveGrid.tsx";
@@ -35,7 +34,7 @@ export default function App() {
 
   // Active section scroll tracking
   useEffect(() => {
-    const sections = ["hero", "about", "experience", "projects", "skills", "principles", "contact"];
+    const sections = ["hero", "about", "experience", "projects", "skills", "contact"];
     const observerOptions = {
       root: null,
       rootMargin: "-25% 0px -55% 0px", // Trigger when section occupies the active view center
@@ -423,32 +422,7 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* 6. ENGINEERING PRINCIPLES SECTION */}
-      <section 
-        id="principles" 
-        className="py-14 sm:py-16 md:py-20 lg:py-24 border-b border-border-dark/40 relative"
-      >
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-7xl mx-auto px-4 xs:px-6"
-        >
-          <div className="flex flex-col gap-2 mb-10 md:mb-16 text-left">
-            <span className="text-[10px] font-mono tracking-widest text-primary-blue font-bold uppercase">
-              {t("principles_title")}
-            </span>
-            <h2 className="text-3xl font-serif font-semibold tracking-tight text-white">
-              {t("principles_subtitle")}
-            </h2>
-          </div>
-
-          <Principles />
-        </motion.div>
-      </section>
-
-      {/* 7. CONTACT SECTION */}
+      {/* 6. CONTACT SECTION */}
       <section 
         id="contact" 
         className="py-14 sm:py-16 md:py-20 lg:py-24"
