@@ -548,17 +548,17 @@ const PROJECTS_LOCALIZED: Record<Language, Project[]> = {
       ]
     },
     {
-      id: "barberos",
-      title: "BarberOS",
-      description: "Sistema white-label completo para gestão de barbearias, finanças e agendamentos inteligentes em tempo real.",
-      longDescription: "O BarberOS é uma plataforma white-label desenvolvida sob medida para barbearias, permitindo agendamento automatizado, controle de fluxo de caixa e gestão de profissionais. Construído com Laravel no back-end e React no front-end, o sistema utiliza MySQL para persistência de alta confiabilidade e Redis para cache de agendamentos concorrentes.",
+      id: "giracadeira",
+      title: "GiraCadeira",
+      description: "Sistema completo para gestão de barbearias e salões, finanças e agendamentos inteligentes em tempo real.",
+      longDescription: "O GiraCadeira é uma plataforma desenvolvida sob medida para barbearias e salões de beleza, permitindo agendamento automatizado, controle de fluxo de caixa e gestão de profissionais. Construído com Laravel no back-end e React no front-end, o sistema utiliza MySQL para persistência de alta confiabilidade e Redis para cache de agendamentos concorrentes.",
       image: "payment_analytics",
       technologies: ["Laravel", "React", "MySQL", "Redis", "REST APIs"],
-      githubUrl: "https://github.com",
-      demoUrl: "",
+      githubUrl: "",
+      demoUrl: "https://giracadeira.vercel.app/",
       metrics: [
-        { label: "Status", value: "Em Dev" },
-        { label: "Arquitetura", value: "White-Label" },
+        { label: "Status", value: "Em Produção" },
+        { label: "Plataforma", value: "SaaS Web" },
         { label: "Agendamentos", value: "Tempo Real" }
       ]
     },
@@ -595,17 +595,17 @@ const PROJECTS_LOCALIZED: Record<Language, Project[]> = {
       ]
     },
     {
-      id: "barberos",
-      title: "BarberOS",
-      description: "Complete white-label system for barbershop management, finance, and smart real-time scheduling.",
-      longDescription: "BarberOS is a white-label platform custom-built for barbershops, allowing automated scheduling, cash flow control, and barber management. Built with Laravel on the back-end and React on the front-end, the system utilizes MySQL for high-reliability persistence and Redis for concurrent scheduling cache.",
+      id: "giracadeira",
+      title: "GiraCadeira",
+      description: "Complete system for barbershop and salon management, finance, and smart real-time scheduling.",
+      longDescription: "GiraCadeira is a platform custom-built for barbershops and beauty salons, enabling automated scheduling, cash flow control, and professional management. Built with Laravel on the back-end and React on the front-end, the system utilizes MySQL for high-reliability persistence and Redis for concurrent scheduling cache.",
       image: "payment_analytics",
       technologies: ["Laravel", "React", "MySQL", "Redis", "REST APIs"],
-      githubUrl: "https://github.com",
-      demoUrl: "",
+      githubUrl: "",
+      demoUrl: "https://giracadeira.vercel.app/",
       metrics: [
-        { label: "Status", value: "In Dev" },
-        { label: "Architecture", value: "White-Label" },
+        { label: "Status", value: "In Production" },
+        { label: "Platform", value: "SaaS Web" },
         { label: "Scheduling", value: "Real-Time" }
       ]
     },

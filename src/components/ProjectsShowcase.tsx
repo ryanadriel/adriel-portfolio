@@ -4,7 +4,7 @@ import { Project } from "../types.ts";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { 
   Github, ExternalLink, ShieldAlert, Cpu, BarChart3, 
-  Layers, ChevronDown, ChevronUp, Database, ArrowRight, Activity
+  Layers, ChevronDown, ChevronUp, Database, ArrowRight, Activity, Lock
 } from "lucide-react";
 
 export function ProjectsShowcase() {
@@ -72,15 +72,16 @@ export function ProjectsShowcase() {
             </div>
           </div>
         );
+      case "giracadeira":
       case "barberos":
         return (
           <div className="absolute inset-0 bg-[#0e0c0d] flex flex-col justify-between p-3.5 border-b border-border-dark overflow-hidden font-mono text-[9px] text-[#C7C7C7]">
             {/* Visual Security & Payment Transaction Gateway */}
             <div className="flex items-center justify-between border-b border-white/5 pb-1.5">
               <span className="text-[10px] font-bold text-emerald-400 flex items-center gap-1">
-                <ShieldAlert className="w-3.5 h-3.5" /> BARBEROS CALENDAR ENGINE
+                <ShieldAlert className="w-3.5 h-3.5" /> GIRACADEIRA CALENDAR ENGINE
               </span>
-              <span className="text-[8px] text-primary-blue border border-primary-blue/30 px-1.5 py-0.5 rounded bg-primary-blue/5 font-bold">WHITE-LABEL</span>
+              <span className="text-[8px] text-primary-blue border border-primary-blue/30 px-1.5 py-0.5 rounded bg-primary-blue/5 font-bold">SAAS PLATFORM</span>
             </div>
 
             <div className="flex-1 py-2.5 flex items-center justify-between gap-2">
@@ -380,9 +381,13 @@ export function ProjectsShowcase() {
                     onClick={() => handleGitHubClick(project.githubUrl, project.title)}
                     className="flex items-center justify-center gap-1.5 py-2 border border-border-dark bg-bg-dark hover:border-text-secondary/30 text-[11px] font-mono font-bold text-text-secondary hover:text-text-primary rounded-lg transition-all duration-200 cursor-pointer"
                     id={`project-github-${project.id}`}
+                    title={!project.githubUrl ? (language === "pt" ? "Repositório Privado (NDA)" : "Private Repository (NDA)") : undefined}
                   >
                     <Github className="w-3.5 h-3.5" />
                     <span>{t("btn_code")}</span>
+                    {!project.githubUrl && (
+                      <Lock className="w-3 h-3 text-amber-400 shrink-0 ml-0.5" />
+                    )}
                   </button>
                   <button
                     onClick={() => handleDemoClick(project.demoUrl, project.title)}
