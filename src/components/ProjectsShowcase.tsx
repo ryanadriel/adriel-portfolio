@@ -28,13 +28,14 @@ export function ProjectsShowcase() {
   // Programmatic mockups utilizing vector CSS to achieve pristine developer visual quality
   const renderProjectMockup = (projectId: string) => {
     switch (projectId) {
+      case "trayvon-saas":
       case "nexora-saas":
         return (
           <div className="absolute inset-0 bg-[#0c0d0e] flex flex-col justify-between p-3.5 border-b border-border-dark overflow-hidden font-mono text-[9px] text-[#C7C7C7]">
             {/* Visual SaaS Billing Simulation */}
             <div className="flex items-center justify-between border-b border-white/5 pb-1.5">
               <span className="text-[10px] font-bold text-primary-blue flex items-center gap-1">
-                <Activity className="w-3.5 h-3.5" /> NEXORA BILLING SYSTEM
+                <Activity className="w-3.5 h-3.5" /> TRAYVON BILLING SYSTEM
               </span>
               <span className="text-[8px] bg-emerald-500/10 text-emerald-400 px-1 py-0.5 rounded border border-emerald-500/20 font-bold">MULTI-TENANT ACTIVE</span>
             </div>

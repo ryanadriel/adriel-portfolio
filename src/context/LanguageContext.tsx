@@ -38,9 +38,9 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     // About Me
     about_title: "SOBRE MIM",
     about_subtitle: "Arquitetura e resolução de problemas complexos.",
-    about_p1: "Olá! Sou Adriel Barbosa, Backend Software Engineer com sólido conhecimento em PHP e Laravel, com experiência no desenvolvimento de APIs REST, integrações entre sistemas e plataformas SaaS.",
-    about_p2: "Acredito que software de qualidade vai além de atender aos requisitos: ele deve ser bem estruturado, fácil de manter e preparado para evoluir. Por isso, busco aplicar princípios como Clean Code, SOLID e Clean Architecture de forma prática, construindo soluções organizadas, escaláveis e sustentáveis ao longo do tempo.",
-    about_p3: "Atualmente, meu trabalho está concentrado no desenvolvimento backend com Laravel, atuando na construção de aplicações que unem desempenho, confiabilidade e uma boa experiência para quem dará continuidade ao código.",
+    about_p1: "Desenvolvedor back-end especializado em PHP, Laravel e APIs REST, com mais de 3 anos de experiência construindo e mantendo sistemas web em produção. Tenho atenção especial às partes de um sistema que evitam problemas antes que eles apareçam: controle de acesso bem definido, consistência de dados e automação de processos repetitivos.",
+    about_p2: "Trabalhos recentes incluem o fortalecimento do controle de acesso em recursos sensíveis da aplicação, utilizando RBAC, escopos de tokens de API e validações de propriedade, além da criação de ferramentas que reduziram processos manuais recorrentes de horas para segundos.",
+    about_p3: "No início da minha carreira, atuei como o único desenvolvedor interno de uma empresa, assumindo responsabilidades por sistemas legados, infraestrutura, automação e desenvolvimento de aplicações, desde o levantamento de requisitos até a entrada em produção.",
     metric_exp: "EXP. PROFISSIONAL",
     metric_exp_val: "3+ ANOS",
     metric_apis: "APIs INTEGRADAS",
@@ -197,9 +197,9 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     // About Me
     about_title: "ABOUT ME",
     about_subtitle: "Architecture and complex problem solving.",
-    about_p1: "Hello! I’m Adriel Barbosa, a Backend Software Engineer with solid expertise in PHP and Laravel, and experience developing REST APIs, system integrations, and SaaS platforms.",
-    about_p2: "I believe that quality software goes beyond merely meeting requirements: it must be well-structured, maintainable, and built to evolve. That’s why I apply principles like Clean Code, SOLID, and Clean Architecture in practice, creating solutions that are organized, scalable, and sustainable over the long term.",
-    about_p3: "Currently, my work focuses on backend development with Laravel, building applications that prioritize performance, reliability, and a positive experience for those who will maintain the codebase.",
+    about_p1: "Backend developer specializing in PHP, Laravel, and REST APIs, with over 3 years of experience building and maintaining web systems in production. I pay special attention to the parts of a system that prevent problems before they arise: well-defined access control, data consistency, and automation of repetitive processes.",
+    about_p2: "Recent work includes strengthening access control on sensitive application resources using RBAC, API token scopes, and ownership validations, as well as creating tools that reduced recurring manual processes from hours to seconds.",
+    about_p3: "Early in my career, I served as the sole in-house developer at a company, taking responsibility for legacy systems, infrastructure, automation, and application development, from requirements gathering to production deployment.",
     metric_exp: "PROFESSIONAL EXP.",
     metric_exp_val: "3+ YEARS",
     metric_apis: "INTEGRATED APIs",
@@ -341,108 +341,100 @@ const EXPERIENCES_LOCALIZED: Record<Language, Experience[]> = {
     {
       id: "exp-officecom",
       period: "Fev/2025 — Atual",
-      role: "Desenvolvedor Back-end Jr II",
+      role: "Backend Developer | PHP & Laravel",
       company: "OfficeCom Brasil",
-      description: "Desenvolvimento e manutenção de sistemas back-end com PHP e Laravel, garantindo alta performance e confiabilidade em sistemas em produção.",
+      description: "Desenvolvo e mantenho funcionalidades de backend e APIs REST para sistemas em produção utilizando PHP e Laravel.",
       results: [
-        "Integração de APIs REST robustas e gerenciamento eficiente de dados com MySQL, assegurando consistência de informações corporativas.",
-        "Participação ativa em todo o ciclo de desenvolvimento: levantamento de requisitos, implementação de novas features, revisão de código e entrega.",
-        "Escrita de código limpo e escalável, aplicando boas práticas de arquitetura, SOLID e padrões de projeto essenciais."
+        "Reestruturei o controle de acesso de recursos sensíveis da aplicação, fortalecendo a autorização em mais de cinco fluxos e mitigando riscos de Broken Access Control por meio de RBAC, escopos de API e validações de propriedade.",
+        "Ampliei as verificações de propriedade para mais de cinco tipos de recursos sensíveis — incluindo pedidos, saques, desvios, cartões e saldos de conta —, abrangendo cenários que não eram protegidos apenas pela ordem em nível de middleware."
       ],
-      technologies: ["PHP", "Laravel", "MySQL", "REST APIs", "Clean Code", "Git"]
+      technologies: ["PHP", "Laravel", "APIs REST", "RBAC", "MySQL", "Git"]
     },
     {
       id: "exp-stoledo-jr2",
       period: "Jan/2024 — Fev/2025",
       role: "Desenvolvedor Web Júnior II",
       company: "S. Toledo Agência Integrada",
-      description: "Desenvolvimento de soluções web completas com Laravel e PHP, sendo referência da equipe técnica em integrações de APIs e automações.",
+      description: "Atuei como único desenvolvedor interno responsável pela evolução e sustentação dos sistemas web da empresa, trabalhando principalmente com PHP, Laravel e MySQL, além de demandas relacionadas à infraestrutura e integrações.",
       results: [
-        "Criação e implementação de scripts customizados em Python que automatizaram processos manuais e repetitivos do time, reduzindo o tempo de execução em 30%.",
-        "Coordenação técnica da manutenção contínua e sustentação de sistemas e sites críticos, assegurando alta disponibilidade e performance constante.",
-        "Análise aprofundada de requisitos técnicos e proposição de soluções robustas, eficientes e de fácil manutenção."
+        "Refatorei de ponta a ponta um sistema legado utilizado por uma das empresas do grupo, reorganizando sua base de código e sua arquitetura para tornar a aplicação mais sustentável, previsível e fácil de evoluir.",
+        "Desenvolvi automações para eliminar atividades operacionais repetitivas e participei diretamente do levantamento de requisitos, desenvolvimento, implantação e manutenção dos sistemas em produção."
       ],
-      technologies: ["PHP", "Laravel", "Python", "MySQL", "APIs", "Automation", "Git"]
+      technologies: ["PHP", "Laravel", "MySQL", "Infraestrutura", "Automação", "Git"]
     },
     {
       id: "exp-stoledo-jr",
       period: "Abr/2023 — Dez/2023",
       role: "Desenvolvedor Web Júnior",
       company: "S. Toledo Agência Integrada",
-      description: "Desenvolvimento de ponta a ponta (full-cycle) de soluções web integradas utilizando stacks modernas baseadas em PHP e Laravel.",
+      description: "Atuei no desenvolvimento e manutenção de sistemas web utilizando PHP, Laravel, MySQL e JavaScript, assumindo progressivamente maior responsabilidade sobre as aplicações internas da empresa.",
       results: [
-        "Desenvolvimento de requisitos funcionais de ponta a ponta em projetos web utilizando PHP, Laravel, MySQL e JavaScript.",
-        "Otimização de performance e resolução de gargalos de banco de dados em sistemas legados, melhorando o tempo de resposta e estabilidade global.",
-        "Criação autônoma de sistemas e portais funcionais, modernos e escaláveis para atender projetos corporativos de menor e médio porte."
+        "Trabalhei desde o entendimento das necessidades das áreas internas até a implementação e disponibilização das funcionalidades, além de atuar na manutenção de sistemas legados, correção de problemas e evolução das aplicações existentes.",
+        "Como único desenvolvedor interno, também passei a lidar com demandas técnicas relacionadas ao ambiente e à infraestrutura necessários para manter os sistemas em funcionamento."
       ],
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML/CSS", "Git"]
+      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Infraestrutura", "Git"]
     },
     {
       id: "exp-stoledo-intern",
       period: "Out/2022 — Mar/2023",
       role: "Estagiário de Desenvolvimento Web",
       company: "S. Toledo Agência Integrada",
-      description: "Início da trajetória profissional prestando suporte no desenvolvimento e manutenção evolutiva de plataformas digitais.",
+      description: "Iniciei minha atuação profissional trabalhando na manutenção e evolução de sistemas web existentes com PHP, Laravel, MySQL e JavaScript.",
       results: [
-        "Manutenção contínua e correção de bugs em sistemas existentes construídos com PHP, Laravel, MySQL e JavaScript.",
-        "Identificação e resolução assistida de problemas de performance em plataformas e portais web.",
-        "Atuação integrada com metodologias ágeis (Scrum), participando de reuniões diárias (scrum meetings) e entregas em sprints semanais."
+        "Atuei na correção de bugs, implementação de melhorias e suporte aos sistemas em produção, além de começar a assumir demandas relacionadas à infraestrutura e ao funcionamento das aplicações da empresa.",
+        "Essa experiência me deu contato direto com sistemas legados e com a responsabilidade de manter aplicações utilizadas no dia a dia da operação."
       ],
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Scrum", "Git"]
+      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Git"]
     }
   ],
   en: [
     {
       id: "exp-officecom",
       period: "Feb/2025 — Present",
-      role: "Junior II Backend Developer",
+      role: "Backend Developer | PHP & Laravel",
       company: "OfficeCom Brasil",
-      description: "Backend development and maintenance using PHP and Laravel, ensuring high performance and reliability for production systems.",
+      description: "Develop and maintain backend features and REST APIs for production systems using PHP and Laravel.",
       results: [
-        "Integration of robust REST APIs and efficient database management with MySQL, ensuring corporate data consistency.",
-        "Active participation in the entire development lifecycle: requirements gathering, new feature implementation, code review, and delivery.",
-        "Writing clean and scalable code, applying architecture best practices, SOLID, and essential design patterns."
+        "Restructured access control for sensitive application resources, strengthening authorization across 5+ flows and mitigating Broken Access Control risks using RBAC, API scopes, and ownership validations.",
+        "Expanded ownership checks for 5+ sensitive resource types — including orders, withdrawals, transfers, cards, and account balances —, covering scenarios not protected solely by middleware-level checks."
       ],
-      technologies: ["PHP", "Laravel", "MySQL", "REST APIs", "Clean Code", "Git"]
+      technologies: ["PHP", "Laravel", "REST APIs", "RBAC", "MySQL", "Git"]
     },
     {
       id: "exp-stoledo-jr2",
       period: "Jan/2024 — Feb/2025",
       role: "Junior II Web Developer",
       company: "S. Toledo Agência Integrada",
-      description: "Development of end-to-end web solutions with Laravel and PHP, acting as a technical reference in API integrations and automations.",
+      description: "Served as the sole in-house developer responsible for evolving and maintaining company web systems, working primarily with PHP, Laravel, and MySQL, alongside infrastructure and integration demands.",
       results: [
-        "Creation and implementation of custom Python scripts that automated manual, repetitive tasks, reducing team execution time by 30%.",
-        "Technical coordination of continuous maintenance and support for critical websites and systems, ensuring high availability.",
-        "Deep analysis of technical requirements to propose robust, efficient, and easily maintainable solutions."
+        "Refactored a legacy system used by a group company end-to-end, reorganizing its codebase and architecture to make the application more sustainable, predictable, and maintainable.",
+        "Developed automations to eliminate repetitive operational tasks and directly participated in requirements gathering, development, deployment, and maintenance of production systems."
       ],
-      technologies: ["PHP", "Laravel", "Python", "MySQL", "APIs", "Automation", "Git"]
+      technologies: ["PHP", "Laravel", "MySQL", "Infrastructure", "Automation", "Git"]
     },
     {
       id: "exp-stoledo-jr",
       period: "Apr/2023 — Dec/2023",
       role: "Junior Web Developer",
       company: "S. Toledo Agência Integrada",
-      description: "Full-cycle development of integrated web solutions using modern PHP and Laravel stacks.",
+      description: "Worked on developing and maintaining web systems using PHP, Laravel, MySQL, and JavaScript, progressively taking on greater responsibility for internal applications.",
       results: [
-        "Development of end-to-end functional requirements using PHP, Laravel, MySQL, and JavaScript.",
-        "Performance optimization and database bottleneck resolution in legacy systems, improving global response time and stability.",
-        "Independent creation of functional, modern, and scalable systems and portals to meet small-to-medium business project needs."
+        "Worked from understanding internal department needs to implementing and releasing features, as well as maintaining legacy systems, bug fixing, and evolving existing applications.",
+        "As the sole in-house developer, also managed technical demands regarding the environment and infrastructure required to keep systems operational."
       ],
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML/CSS", "Git"]
+      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Infrastructure", "Git"]
     },
     {
       id: "exp-stoledo-intern",
       period: "Oct/2022 — Mar/2023",
       role: "Web Development Intern",
       company: "S. Toledo Agência Integrada",
-      description: "Beginning of professional journey, providing support in development and evolutive maintenance of digital platforms.",
+      description: "Started my professional career working on maintaining and evolving existing web systems with PHP, Laravel, MySQL, and JavaScript.",
       results: [
-        "Continuous maintenance and bug fixing in existing systems built with PHP, Laravel, MySQL, and JavaScript.",
-        "Identified and assisted in resolving performance issues on web portals and platforms.",
-        "Integrated action with agile methodologies (Scrum), participating in daily scrum meetings and weekly sprint deliveries."
+        "Worked on bug fixing, feature enhancements, and production support, while beginning to handle infrastructure and application maintenance tasks.",
+        "Direct contact with legacy systems and the responsibility of maintaining applications used in daily operations."
       ],
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Scrum", "Git"]
+      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Git"]
     }
   ]
 };
@@ -541,14 +533,14 @@ const SKILLS_LOCALIZED: Record<Language, SkillCategory[]> = {
 const PROJECTS_LOCALIZED: Record<Language, Project[]> = {
   pt: [
     {
-      id: "nexora-saas",
-      title: "Nexora SaaS",
+      id: "trayvon-saas",
+      title: "Trayvon",
       description: "Plataforma SaaS multi-tenant empresarial focada em alta performance de processamento financeiro e faturamento.",
-      longDescription: "O Nexora SaaS é uma infraestrutura corporativa robusta desenvolvida com Laravel e MySQL, operando sob uma arquitetura de múltiplos inquilinos com isolamento estrito de esquemas de banco de dados. Conta com filas de alta prioridade estruturadas no Redis, garantindo processamento em lote assíncrono de folhas de pagamento em segundos.",
+      longDescription: "O Trayvon é uma infraestrutura corporativa robusta desenvolvida com Laravel e MySQL, operando sob uma arquitetura de múltiplos inquilinos com isolamento estrito de esquemas de banco de dados. Conta com filas de alta prioridade estruturadas no Redis, garantindo processamento em lote assíncrono em segundos.",
       image: "finance_dashboard",
       technologies: ["Laravel", "MySQL", "Redis", "Docker", "RabbitMQ"],
-      githubUrl: "https://github.com",
-      demoUrl: "https://nexora-app-livid.vercel.app/",
+      githubUrl: "",
+      demoUrl: "https://trayvon.com.br/",
       metrics: [
         { label: "Tempo de Resposta", value: "42ms" },
         { label: "Taxa de Uptime", value: "99.99%" },
@@ -588,14 +580,14 @@ const PROJECTS_LOCALIZED: Record<Language, Project[]> = {
   ],
   en: [
     {
-      id: "nexora-saas",
-      title: "Nexora SaaS",
+      id: "trayvon-saas",
+      title: "Trayvon",
       description: "Enterprise multi-tenant SaaS platform focused on high-performance financial processing and billing.",
-      longDescription: "Nexora SaaS is a robust corporate infrastructure built with Laravel and MySQL, operating under a multi-tenant architecture with strict database schema isolation. It features high-priority Redis queues, ensuring asynchronous batch processing of payrolls in seconds.",
+      longDescription: "Trayvon is a robust corporate infrastructure built with Laravel and MySQL, operating under a multi-tenant architecture with strict database schema isolation. It features high-priority Redis queues, ensuring asynchronous batch processing in seconds.",
       image: "finance_dashboard",
       technologies: ["Laravel", "MySQL", "Redis", "Docker", "RabbitMQ"],
-      githubUrl: "https://github.com",
-      demoUrl: "https://nexora-app-livid.vercel.app/",
+      githubUrl: "",
+      demoUrl: "https://trayvon.com.br/",
       metrics: [
         { label: "Response Time", value: "42ms" },
         { label: "Uptime Rate", value: "99.99%" },
