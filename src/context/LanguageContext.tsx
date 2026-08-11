@@ -446,16 +446,15 @@ const SKILLS_LOCALIZED: Record<Language, SkillCategory[]> = {
       skills: [
         { name: "Laravel", level: 95, description: "Framework robusto, filas, queues, gates e multi-tenancy avançado" },
         { name: "PHP", level: 95, description: "Orientação a objetos avançada, gerenciamento de memória e PHP 8.x+" },
-        { name: "Node.js", level: 85, description: "Desenvolvimento de APIs RESTful assíncronas de alta performance com Express e TypeScript" },
+        { name: "Node.js", level: 75, description: "Desenvolvimento de APIs RESTful assíncronas de alta performance com Express e TypeScript" },
         { name: "REST APIs", level: 98, description: "Projetos sob os níveis de maturidade de Richardson, idempotência" },
-        { name: "JWT", level: 95, description: "Autenticação segura e descentralizada com criptografia assimétrica" },
-        { name: "OAuth", level: 90, description: "Implementação de servidores de autorização e fluxos complexos de autenticação" }
+        { name: "OAuth", level: 80, description: "Integração self-service com provedores OAuth2 de terceiros — fluxo authorization code e credenciais de plataforma" }
       ]
     },
     {
       title: "Databases",
       skills: [
-        { name: "PostgreSQL", level: 90, description: "Indexação avançada, particionamento, CTEs, otimização de queries" },
+        { name: "PostgreSQL", level: 40, description: "Exposição em estudo/teste — experiência de produção real foi majoritariamente em MySQL" },
         { name: "MySQL", level: 92, description: "Replicação master-slave, pools de conexão, transações ACID estruturadas" },
         { name: "Redis", level: 95, description: "Caches em memória, estruturas de dados complexas, filas pub-sub e rate-limiting" }
       ]
@@ -464,23 +463,21 @@ const SKILLS_LOCALIZED: Record<Language, SkillCategory[]> = {
       title: "DevOps & Cloud",
       skills: [
         { name: "Docker", level: 90, description: "Conteinerização multinível, otimização de imagens, Docker Compose" },
-        { name: "Linux", level: 85, description: "Administração de servidores, scripts bash, hardening de segurança" },
+        { name: "Linux", level: 55, description: "Operação de VPS via SSH — deploy, debug de permissões e ambiente Docker em produção, não administração completa de servidor" },
         { name: "Git / GitHub", level: 95, description: "Fluxos de GitFlow, trunk-based, ganchos automáticos (hooks)" },
-        { name: "Azure DevOps", level: 88, description: "Pipelines avançados, entrega contínua, gerenciamento de artefatos" },
-        { name: "Cloudflare", level: 85, description: "WAF, CDN, caching de borda, regras de firewall customizadas" },
-        { name: "CI / CD", level: 90, description: "Automação completa do ciclo de vida, build, análise de vulnerabilidade" }
+        { name: "Azure DevOps", level: 60, description: "Pipelines avançados, entrega contínua, gerenciamento de artefatos" },
+        { name: "Cloudflare", level: 65, description: "DNS, proxy e emissão de certificado via desafio DNS — sem configuração de WAF ou regras de firewall customizadas" },
+        { name: "CI / CD", level: 65, description: "Pipelines de build e deploy contínuo — sem análise de vulnerabilidade integrada ao pipeline" }
       ]
     },
     {
       title: "Architecture & Practices",
       skills: [
-        { name: "Clean Architecture", level: 95, description: "Divisão de responsabilidades com independência de frameworks e banco de dados" },
+        { name: "Clean Architecture", level: 75, description: "Separação pragmática de responsabilidades (controller fino → service → resposta padronizada) — não a Clean Architecture formal com portas/adaptadores e independência total de framework" },
         { name: "SOLID", level: 98, description: "Garantia de extensibilidade, facilidade de manutenção e modularidade do código" },
         { name: "Design Patterns", level: 90, description: "Uso consciente de padrões como Factory, Strategy, Observer, Facade, Singleton" },
-        { name: "DDD (Domain-Driven Design)", level: 88, description: "Mapeamento tático, bounded contexts, aggregates e ubiquous language" },
-        { name: "Microservices", level: 85, description: "Comunicação síncrona (REST, gRPC) e assíncrona (RabbitMQ) entre serviços" },
-        { name: "Scalability & Perf", level: 92, description: "Análise de gargalos em CPU/IO, balanceamento de carga, monitoramento APM" },
-        { name: "Testing (TDD)", level: 90, description: "Criação de testes unitários, testes integrados, mocks, testes de stress" }
+        { name: "Scalability & Perf", level: 75, description: "Identificação de gargalos de query/cache e uso de filas para desacoplar carga — sem stack de APM/observabilidade em produção" },
+        { name: "Testing (TDD)", level: 55, description: "Testes unitários/integrados quando o projeto exige — não é prática consistente em todo código que escrevo" }
       ]
     }
   ],
@@ -490,16 +487,15 @@ const SKILLS_LOCALIZED: Record<Language, SkillCategory[]> = {
       skills: [
         { name: "Laravel", level: 95, description: "Robust framework, queues, gates, and advanced multi-tenancy" },
         { name: "PHP", level: 95, description: "Advanced OOP, memory management, and PHP 8.x+" },
-        { name: "Node.js", level: 85, description: "Development of high-performance asynchronous RESTful APIs with Express and TypeScript" },
+        { name: "Node.js", level: 75, description: "Development of high-performance asynchronous RESTful APIs with Express and TypeScript" },
         { name: "REST APIs", level: 98, description: "Projects built under Richardson maturity levels, idempotency" },
-        { name: "JWT", level: 95, description: "Secure and decentralized authentication with asymmetric cryptography" },
-        { name: "OAuth", level: 90, description: "Authorization server implementation and complex authentication flows" }
+        { name: "OAuth", level: 80, description: "Self-service integration with third-party OAuth2 providers — authorization code flow and platform credentials" }
       ]
     },
     {
       title: "Databases",
       skills: [
-        { name: "PostgreSQL", level: 90, description: "Advanced indexing, partitioning, CTEs, query optimization" },
+        { name: "PostgreSQL", level: 40, description: "Study/testing exposure — real production experience was mostly in MySQL" },
         { name: "MySQL", level: 92, description: "Master-slave replication, connection pools, structured ACID transactions" },
         { name: "Redis", level: 95, description: "In-memory caching, complex data structures, pub-sub queues, and rate-limiting" }
       ]
@@ -508,23 +504,21 @@ const SKILLS_LOCALIZED: Record<Language, SkillCategory[]> = {
       title: "DevOps & Cloud",
       skills: [
         { name: "Docker", level: 90, description: "Multi-stage containerization, image optimization, Docker Compose" },
-        { name: "Linux", level: 85, description: "Server administration, bash scripts, security hardening" },
+        { name: "Linux", level: 55, description: "VPS operation via SSH — deployment, permissions debugging, and production Docker environment, not full server administration" },
         { name: "Git / GitHub", level: 95, description: "GitFlow, trunk-based workflows, automated hooks" },
-        { name: "Azure DevOps", level: 88, description: "Advanced pipelines, continuous delivery, artifact management" },
-        { name: "Cloudflare", level: 85, description: "WAF, CDN, edge caching, custom firewall rules" },
-        { name: "CI / CD", level: 90, description: "Full lifecycle automation: builds, vulnerability scanning, and testing" }
+        { name: "Azure DevOps", level: 60, description: "Advanced pipelines, continuous delivery, artifact management" },
+        { name: "Cloudflare", level: 65, description: "DNS, proxy, and certificate issuance via DNS challenge — no WAF configuration or custom firewall rules" },
+        { name: "CI / CD", level: 65, description: "Build and continuous deployment pipelines — no integrated vulnerability scanning in the pipeline" }
       ]
     },
     {
       title: "Architecture & Practices",
       skills: [
-        { name: "Clean Architecture", level: 95, description: "Separation of concerns with database and framework independence" },
+        { name: "Clean Architecture", level: 75, description: "Pragmatic separation of concerns (thin controller → service → standardized response) — not formal Clean Architecture with ports/adapters and total framework independence" },
         { name: "SOLID", level: 98, description: "Guarantees code extensibility, maintainability, and modularity" },
         { name: "Design Patterns", level: 90, description: "Conscious use of patterns like Factory, Strategy, Observer, Facade, Singleton" },
-        { name: "DDD (Domain-Driven Design)", level: 88, description: "Tactical mapping, bounded contexts, aggregates, and ubiquitous language" },
-        { name: "Microservices", level: 85, description: "Synchronous (REST, gRPC) and asynchronous (RabbitMQ) communication between services" },
-        { name: "Scalability & Perf", level: 92, description: "CPU/IO bottleneck analysis, load balancing, APM monitoring" },
-        { name: "Testing (TDD)", level: 90, description: "Unit tests, integrated tests, mocks, stress testing" }
+        { name: "Scalability & Perf", level: 75, description: "Identification of query/cache bottlenecks and use of queues to decouple load — no APM/observability stack in production" },
+        { name: "Testing (TDD)", level: 55, description: "Unit/integration tests when required by the project — not a consistent practice in all code I write" }
       ]
     }
   ]
