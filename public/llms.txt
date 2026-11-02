@@ -1,0 +1,17 @@
+# Adriel Barbosa
+
+> Desenvolvedor back-end especializado em PHP, Laravel e APIs REST, com mais de 3 anos de experiência em sistemas web em produção. Fundador da ADX Technology.
+
+## Principais páginas
+- [Portfólio](https://www.adrielbarbosa.com.br/): sobre, trajetória, projetos, habilidades e contato.
+- [Currículo (PT-BR)](https://www.adrielbarbosa.com.br/documents/Adriel_Barbosa_Pt_Br.pdf)
+- [Resume (EN)](https://www.adrielbarbosa.com.br/documents/Adriel_Barbosa_EN.pdf)
+
+## Projetos
+- [Trayvon](https://trayvon.com.br/): plataforma SaaS multi-tenant de e-commerce (Laravel, MySQL, Redis).
+- [GiraCadeira](https://giracadeira.vercel.app/): gestão e agendamento para barbearias e salões (Laravel, React).
+
+## Perfis
+- [LinkedIn](https://www.linkedin.com/in/adriel-ryan/)
+- [GitHub](https://github.com/ryanadriel)
+- [ADX Technology](https://adxtechnology.com.br)
